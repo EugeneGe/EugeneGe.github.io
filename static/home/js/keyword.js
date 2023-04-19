@@ -21,9 +21,6 @@ $(function () {
     { url: 'https://cn.bing.com/search?q=', type: 'bing' },
     { url: 'https://www.so.com/s?q=', type: 'so' },
     { url: 'https://www.google.com/search?q=', type: 'google' },
-    { url: 'http://www.cilimao.cc/search?word=', type: 'cili' },
-    { url: 'http://neets.cc/search?key=', type: 'yingyin' },
-    { url: 'http://www.panduoduo.net/s/name/', type: 'wangpan' },
   ];
   $searchLogo.on('click', function () {
     $searchMethods.show();
@@ -218,21 +215,12 @@ $(function () {
       },
     },
     google: {
-      url: 'http://suggestqueries.google.com/complete/search',
+      url: 'https://suggestqueries.google.com/complete/search',
       data: function (keyword) {
         return {
           q: keyword,
           jsonp: 'window.searchResultGoogle',
           client: 'youtube',
-        };
-      },
-    },
-    wangpan: {
-      url: 'http://unionsug.baidu.com/su',
-      data: function (keyword) {
-        return {
-          wd: keyword,
-          cb: 'window.searchResultBaidu',
         };
       },
     },
