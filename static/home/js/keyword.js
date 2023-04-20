@@ -21,6 +21,7 @@ $(function () {
     { url: 'https://cn.bing.com/search?q=', type: 'bing' },
     { url: 'https://www.so.com/s?q=', type: 'so' },
     { url: 'https://www.google.com/search?q=', type: 'google' },
+    { url: 'https://www.douyin.com/search/', type: 'douyin' },
   ];
   $searchLogo.on('click', function () {
     $searchMethods.show();
