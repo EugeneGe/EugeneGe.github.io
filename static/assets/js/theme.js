@@ -257,7 +257,7 @@ $(".toc ul")
   .siblings("a")
   .each(function () {
     let link = $(this);
-    let expand = $('<i class="fa fa-plus-square-o"></i>');
+    let expand = $('<i class="fa fa-chevron-down" />');
 
     expand.on("click", function (e) {
       e.stopPropagation();

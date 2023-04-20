@@ -3551,11 +3551,11 @@ p.explain .minibutton {
 	content: ""
 }
 
-.fa-minus-square:before {
+.fa-angle-up:before {
 	content: ""
 }
 
-.fa-minus-square-o:before,.toctree>ul .toc.current>a .fa-plus-square-o:before {
+.fa-angle-up-o:before,.toctree>ul .toc.current>a .fa-chevron-down:before {
 	content: ""
 }
 
@@ -12241,11 +12241,19 @@ html[dir=rtl] .fa-arrow-circle-right:before {
 	.hide-sm {
 		display: none !important
 	}
+
+	.container .content-wrap .header .btn-octicon{
+		background: #55a5d9;
+	}
 }
 
 @media(min-width: 544px)and (max-width: 767px) {
 	.hide-md {
 		display: none !important
+	}
+
+	.container .content-wrap .header .btn-octicon{
+		background: #55a5d9;
 	}
 }
 
