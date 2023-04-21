@@ -64,3 +64,8 @@ docs:
 # 搜索框文本
 search:
   description: search
+
+
+# 七牛配置
+qiniu:
+  home_img_url: http://image.justmyfreedom.com/

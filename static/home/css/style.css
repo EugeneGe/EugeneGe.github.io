@@ -132,8 +132,8 @@ textarea {
 }
 .logo-left {
     position: relative;
-    width: 125px;
-    height: 121px;
+    width: 64px;
+    height: 64px;
     cursor: pointer;
 }
 .logo-right {
@@ -198,7 +198,7 @@ textarea {
 }
 .search-methods li {
     padding-left: 39px;
-    background: url("./img/scgoogle.png") 10px no-repeat;
+    background: url("http://image.justmyfreedom.com/static/home/css/img/scgoogle.png") 10px no-repeat;
     overflow: hidden;
     height: 34px;
     line-height: 34px;
@@ -206,22 +206,22 @@ textarea {
     cursor: pointer;
 }
 .search-logo.baidu, li.baidu {
-    background-image: url("./img/scbaidu.png");
+    background-image: url("http://image.justmyfreedom.com/static/home/css/img/scbaidu.png");
 }
 .search-logo.bing, li.bing {
-    background-image: url("./img/scbing.png");
+    background-image: url("http://image.justmyfreedom.com/static/home/css/img/scbing.png");
 }
 .search-logo.sogou, li.sogou {
-    background-image: url("./img/scsogou.png");
+    background-image: url("http://image.justmyfreedom.com/static/home/css/img/scsogou.png");
 }
 .search-logo.douyin, li.douyin {
-    background-image: url("./img/scdouyin.png");
+    background-image: url("http://image.justmyfreedom.com/static/home/css/img/scdouyin.png");
 }
 .search-logo.so, li.so {
-    background-image: url("./img/scso.png");
+    background-image: url("http://image.justmyfreedom.com/static/home/css/img/scso.png");
 }
 .search-logo.google, li.google {
-    background-image: url("./img/scgoogle.png");
+    background-image: url("http://image.justmyfreedom.com/static/home/css/img/scgoogle.png");
 }
 
 .search-methods .search-item:hover {

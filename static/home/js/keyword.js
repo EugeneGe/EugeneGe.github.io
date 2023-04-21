@@ -1,21 +1,17 @@
 $(function () {
 
   // 默认搜索引擎记录
-  var searchTypeStore = {
-    set: function (type) {
-      localStorage.setItem('SearchType', type);
-    },
-    get: function () {
-      return localStorage.getItem('SearchType') || 'baidu';
-    },
+  const searchTypeStore = {
+    set: (type) => localStorage.setItem('SearchType', type),
+    get: () => localStorage.getItem('SearchType') || 'baidu',
   };
 
-  var $searchMethods = $('#search_methods');
-  var $searchLogo = $('#search_logo');
-  var initSearchType = searchTypeStore.get();
+  const $searchMethods = $('#search_methods');
+  const $searchLogo = $('#search_logo');
+  const initSearchType = searchTypeStore.get();
   $searchLogo.addClass(initSearchType).data('type', initSearchType);
 
-  var search_types = [
+  const searchTypes = [
     { url: 'https://www.baidu.com/s?wd=', type: 'baidu' },
     { url: 'https://www.sogou.com/web?query=', type: 'sogou' },
     { url: 'https://cn.bing.com/search?q=', type: 'bing' },
@@ -23,97 +19,76 @@ $(function () {
     { url: 'https://www.google.com/search?q=', type: 'google' },
     { url: 'https://www.douyin.com/search/', type: 'douyin' },
   ];
-  $searchLogo.on('click', function () {
-    $searchMethods.show();
-  });
+  $searchLogo.on('click', () => $searchMethods.show());
 
   // 搜索引擎切换
-  $searchMethods.on('click', 'li', function () {
-    var type = $(this).data('type');
+  $searchMethods.on('click', 'li', function() {
+    const type = $(this).data('type');
     searchTypeStore.set(type);
-    $searchLogo.removeClass()
-    .data('type', type)
-    .addClass(type + ' search-logo');
+    $searchLogo.removeClass().data('type', type).addClass(`${type} search-logo`);
     $searchMethods.hide();
     $('#search_keyword').focus();
   });
-  $searchMethods.on('mouseleave', function () {
-    $searchMethods.hide();
-  });
+  $searchMethods.on('mouseleave', () => $searchMethods.hide());
 
-  var EVENT_CLEAR_KEYWORD = 'clearKeyword';
-  var EVENT_SEARCH = 'search';
+  const EVENT_CLEAR_KEYWORD = 'clearKeyword';
+  const EVENT_SEARCH = 'search';
   // 关键词搜索输入
-  $('#search_keyword').on('keyup', function (event) {
-    var keyword = $(this).val();
-    if(event.which==13){
-    	if($('#search_result .active').length>0){
-    		keyword = $('#search_result .active').eq(0).text();
-    	}
-      openSearch(keyword)
+  $('#search_keyword').on('keyup', function(event) {
+    const keyword = $(this).val();
+    if (event.which === 13) {
+      if ($('#search_result .active').length > 0) {
+        $(this).val($('#search_result .active').eq(0).text());
+      }
+      openSearch($(this).val());
       return;
     }
-    // TODO 上下键选择待选答案
-    var bl = moveChange(event);
-    if(bl){
-    	keywordChange(keyword);
+    // 上下键选择待选答案
+    if (moveChange(event)) {
+      keywordChange(keyword);
     }
-  }).on('blur', function () { 
-  // 推荐结果跳转
-  $('#search_result').on('click', 'li', function () {
-    var word = $(this).text();
-    $('#search_keyword').val(word);
-    openSearch(word);
-    $('#search_result').hide();
-  });
-  // 解决失焦和点击事件冲突问题
-  setTimeout(function() {
-    $('#search_result').hide();
-  }, 100)
-  }).on('focus', function () {
-    var keyword = $(this).val();
+  }).on('blur', () => {
+    // 推荐结果跳转
+    $('#search_result').on('click', 'li', function() {
+      const word = $(this).text();
+      $('#search_keyword').val(word);
+      openSearch(word);
+      $('#search_result').hide();
+    });
+    // 解决失焦和点击事件冲突问题
+    setTimeout(() => $('#search_result').hide(), 100);
+  }).on('focus', function() {
+    const keyword = $(this).val();
     keywordChange(keyword);
   });
-  
-  function moveChange(e){
-		var k = e.keyCode || e.which;
-		var bl = true;
-		switch(k){
-			case 38:
-				rowMove('top');
-				bl = false;
-				break;
-			case 40:
-				rowMove('down');
-				bl = false;
-				break;
-		}
-		return bl;
-	}
+  function moveChange(e) {
+    const k = e.keyCode || e.which;
+    let bl = true;
+    switch (k) {
+      case 38:
+        rowMove('top');
+        bl = false;
+        break;
+      case 40:
+        rowMove('down');
+        bl = false;
+        break;
+    }
+    return bl;
+  }
   function rowMove(move){
-  	var search_result = $('#search_result');
-  	var hove_li = null;
-  	search_result.find('.result-item').each(function(){
-  		if($(this).hasClass('active')){
-  			hove_li = $(this).index();
-  		}
-  	});
-  	if(move == 'top'){
-  		if(hove_li==null){
-	  		hove_li = search_result.find('.result-item').length-1;
-	  	}else{
-	  		hove_li--;
-	  	}
-  	}else if(move == 'down'){
-  		if(hove_li==null){
-	  		hove_li = 0;
-	  	}else{
-	  		hove_li==search_result.find('.result-item').length-1?(hove_li=0):(hove_li++);
-	  	}
-  	}
-  	search_result.find('.active').removeClass('active');
-    search_result.find('.result-item').eq(hove_li).addClass('active');
-    $('#search_keyword').val(search_result.find('.result-item').eq(hove_li).addClass('active').text());
+    const search_result = $('#search_result');
+    let hove_li = search_result.find('.result-item.active').index();
+
+    if(move === 'top'){
+        hove_li = (hove_li === null || hove_li === 0) ? search_result.find('.result-item').length-1 : hove_li-1;
+    }else if(move === 'down'){
+        hove_li = (hove_li === null || hove_li === search_result.find('.result-item').length-1) ? 0 : hove_li+1;
+    }
+
+    search_result.find('.result-item').removeClass('active').eq(hove_li).addClass('active');
+    const active_item = search_result.find('.result-item.active');
+    $('#search_keyword').val(active_item.text());
   }
 
   function keywordChange(keyword) {
@@ -148,7 +123,7 @@ $(function () {
   $('#search_submit').on('click', function () {
     var keyword = $('#search_keyword').val();
     var type = getSeachType();
-    var baseUrl = search_types.find(function (item) {
+    var baseUrl = searchTypes.find(function (item) {
       return item.type === type;
     });
     if (baseUrl && keyword) {
@@ -242,7 +217,7 @@ $(function () {
 
   function openSearch(keyword) {
     var type = getSeachType();
-    var baseUrl = search_types.find(function (item) {
+    var baseUrl = searchTypes.find(function (item) {
       return item.type === type;
     });
     if (baseUrl && keyword) {
