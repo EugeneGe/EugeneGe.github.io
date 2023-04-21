@@ -212,7 +212,7 @@ body {
 }
 
 a {
-	color: #0366d6;
+	color: black;
 	text-decoration: none
 }
 
@@ -5206,7 +5206,6 @@ p.explain .minibutton {
 }
 
 .toctree .caption {
-	color: #55a5d9;
 	font-weight: 600;
 	line-height: 32px
 }
@@ -5478,15 +5477,15 @@ p.explain .minibutton {
 }
 
 .markdown-body a {
-	color: #0366d6
+	color: #88CFBA
 }
 
 .markdown-body a:hover {
-	color: #107ffc
+	color: #BCE4D8
 }
 
 .markdown-body a code,.markdown-body a tt {
-	color: #0366d6
+	color: #88CFBA
 }
 
 .markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6,.markdown-body dt {
