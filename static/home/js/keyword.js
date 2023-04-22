@@ -19,7 +19,13 @@ $(function () {
     { url: 'https://www.google.com/search?q=', type: 'google' },
     { url: 'https://www.douyin.com/search/', type: 'douyin' },
   ];
-  $searchLogo.on('click', () => $searchMethods.show());
+  $searchLogo.on('click', () => {
+    if ($searchMethods.css('display') === 'none') {
+      $searchMethods.show();
+    } else {
+      $searchMethods.hide();
+    }
+  });
 
   // 搜索引擎切换
   $searchMethods.on('click', 'li', function() {

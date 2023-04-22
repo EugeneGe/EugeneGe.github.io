@@ -5255,11 +5255,11 @@ p.explain .minibutton {
 }
 
 .toc.level-1.current .level-2>a {
-	padding-left: 36px
+	padding-left: 20px
 }
 
 .toc.level-2.current>a {
-	padding-left: 36px;
+	padding-left: 20px;
 	background: var(--toc-2)
 }
 
@@ -5268,11 +5268,11 @@ p.explain .minibutton {
 }
 
 .toc.level-2.current .level-3>a {
-	padding-left: 60px
+	padding-left: 30px
 }
 
 .toc.level-3.current>a {
-	padding-left: 60px;
+	padding-left: 30px;
 	background: var(--toc-3)
 }
 
@@ -5281,11 +5281,15 @@ p.explain .minibutton {
 }
 
 .toc.level-3.current .level-4>a {
-	padding-left: 84px
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 95%;
+	padding-left: 40px
 }
 
 .toc.level-4.current>a {
-	padding-left: 84px;
+	padding-left: 40px;
 	background: var(--toc-4)
 }
 

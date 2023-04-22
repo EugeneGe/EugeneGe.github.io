@@ -104,7 +104,6 @@ textarea {
 .inner-center {
     width: 1000px;
     margin: 0 auto;
- 
 }
 
 .main {
@@ -397,5 +396,36 @@ textarea {
 }
 
 /*-----------------------------简洁版样式定义- 结束---------------------------------------------------*/
+/* -------------------------------------移动端适配开始-------------------------------------------------------- */
+@media screen and (max-width: 544px) {
+    
+}
 
+@media screen and (max-width: 768px) {
+    
+}
 
+@media screen and (max-width: 1012px) {
+    
+}
+
+@media screen and (max-width: 1280px) {
+    .inner-center {
+        width: 90% !important;
+     
+    }
+    .content-inside {
+        padding-top: 30% !important;
+    }
+    .nav-content{
+        text-align: center !important;
+    }
+    .jj-list{
+        display: inline-block !important;
+        width: 45% !important;
+        float: none !important;
+        margin-bottom: 0px !important;
+        padding-right: 0px !important;
+    }
+}
+/* -------------------------------------移动端适配结束-------------------------------------------------------- */

@@ -2,6 +2,6 @@
 sort: 1
 ---
 
-# 面试宝典
+# 随笔
 
 source: `{{ page.path }}`
