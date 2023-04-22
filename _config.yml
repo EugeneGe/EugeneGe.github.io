@@ -68,4 +68,4 @@ search:
 
 # 七牛配置
 qiniu:
-  home_img_url: http://image.justmyfreedom.com/
+  img_url: https://image.justmyfreedom.com/
