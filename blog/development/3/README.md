@@ -1,3 +1,7 @@
+---
+sort: 2
+---
+
 # 前端笔记
 
-source: `{{ page.path }}`
+{% include list.liquid all=true %}

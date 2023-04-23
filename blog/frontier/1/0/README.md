@@ -1,7 +1,3 @@
----
-sort: 1
----
-
-# 随笔
+# 科技
 
 {% include list.liquid all=true %}

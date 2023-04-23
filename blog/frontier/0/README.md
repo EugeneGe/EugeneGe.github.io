@@ -1,7 +1,6 @@
 ---
 sort: 1
 ---
-
-# 随笔
+# 推荐
 
 {% include list.liquid all=true %}

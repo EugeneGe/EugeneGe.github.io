@@ -1,3 +1,6 @@
+---
+sort: 2
+---
 # 新闻
 
-source: `{{ page.path }}`
+{% include list.liquid all=true %}

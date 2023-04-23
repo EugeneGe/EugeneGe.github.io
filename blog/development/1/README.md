@@ -3,4 +3,4 @@ sort: 3
 ---
 # Java笔记
 
-source: `{{ page.path }}`
+{% include list.liquid all=true %}

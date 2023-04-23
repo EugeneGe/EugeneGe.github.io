@@ -5255,6 +5255,10 @@ p.explain .minibutton {
 }
 
 .toc.level-1.current .level-2>a {
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
 	padding-left: 20px
 }
 
@@ -5268,6 +5272,10 @@ p.explain .minibutton {
 }
 
 .toc.level-2.current .level-3>a {
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
 	padding-left: 30px
 }
 
@@ -5284,7 +5292,7 @@ p.explain .minibutton {
 	white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 95%;
+    width: 100%;
 	padding-left: 40px
 }
 
@@ -5298,6 +5306,10 @@ p.explain .minibutton {
 }
 
 .toc.level-4.current .level-5>a {
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
 	padding-left: 108px
 }
 
@@ -5485,7 +5497,7 @@ p.explain .minibutton {
 }
 
 .markdown-body a:hover {
-	color: #BCE4D8
+	color: black
 }
 
 .markdown-body a code,.markdown-body a tt {

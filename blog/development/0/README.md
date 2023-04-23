@@ -4,4 +4,5 @@ sort: 1
 
 # 面试宝典
 
-source: `{{ page.path }}`
+{% include list.liquid all=true %}
+

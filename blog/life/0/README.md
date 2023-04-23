@@ -1,7 +1,3 @@
----
-sort: 1
----
-
-# 随笔
+# 诗词鉴赏
 
 {% include list.liquid all=true %}

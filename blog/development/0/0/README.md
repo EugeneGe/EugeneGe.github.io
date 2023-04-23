@@ -1,7 +1,6 @@
 ---
-sort: 1
+sort: 3
 ---
-
-# 随笔
+# Java面试题
 
 {% include list.liquid all=true %}

@@ -10,8 +10,8 @@ theme: null
 ## => Paths 访问路径
 # paths:
 #   root: /
-#   home: /blog
-#   archive: /blog/archive.html
+#   blog: /blog
+#   about: /blog/about/0/2023-04-23_1.html
 #   # rss:  /feed.xml
 
 
