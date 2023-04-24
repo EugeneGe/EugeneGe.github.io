@@ -1,6 +1,6 @@
 ---
-sort: 1
+sort: 2
 ---
-# 随笔
+# Java基础
 
 {% include list.liquid all=true %}
