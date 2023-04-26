@@ -5443,6 +5443,10 @@ p.explain .minibutton {
 	color: #fff
 }
 
+.addons-wrap .addons .license a {
+	color: gray
+}
+
 .content-wrap {
 	font-size: 16px;
 	background: #fff
@@ -5556,6 +5560,19 @@ p.explain .minibutton {
 	font-size: 12px;
 	font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
 	white-space: pre
+}
+
+.markdown-content-header{
+	margin-block-start: 1em;
+    margin-block-end: 1em;
+	margin-top: 16px;
+    margin-bottom: 16px;
+	color: #6a737d;
+    border-left: 0.25em solid #dfe2e5;
+    background: #eef0f4;
+}
+.markdown-content-header a{
+	color: #88CFBA
 }
 
 .markdown-content-footer{

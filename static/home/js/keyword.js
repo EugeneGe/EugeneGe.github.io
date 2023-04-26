@@ -35,11 +35,10 @@ $(function () {
   const EVENT_CLEAR_KEYWORD = 'clearKeyword';
   // 关键词搜索输入
   $('#search_keyword').on('keyup', function(event) {
-    if (event.which === 13) {
-      if ($('#search_result .active').length > 0) {
-        $(this).val($('#search_result .active').eq(0).text());
-      }
-      openSearch($(this).val());
+     //显示清空输入框按钮
+     $('#clear_keyword').show();
+    if (event.keyCode === 13) {
+      openSearch($('#search_keyword').val());
       return;
     }
   });
