@@ -7,6 +7,8 @@ theme: null
 # paginate：设置分页，可以设置每页显示的文章数量
 # timezone：时区，用于生成正确的日期时间戳
 
+# 网站输出目录
+destination: _site
 ## => Paths 访问路径
 # paths:
 #   root: /
