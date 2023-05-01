@@ -2,18 +2,19 @@ $(function () {
   // 默认搜索引擎记录
   const searchTypeStore = {
     set: (type) => localStorage.setItem('SearchType', type),
-    get: () => localStorage.getItem('SearchType') || 'baidu',
+    get: () => localStorage.getItem('SearchType') || 'google',
   };
   const $searchMethods = $('#search_methods');
   const $searchLogo = $('#search_logo');
   const initSearchType = searchTypeStore.get();
   $searchLogo.addClass(initSearchType).data('type', initSearchType);
   const searchTypes = [
+    { url: 'https://www.google.com/search?q=', type: 'google' },
     { url: 'https://www.baidu.com/s?wd=', type: 'baidu' },
     { url: 'https://www.sogou.com/web?query=', type: 'sogou' },
+    { url: 'https://yandex.com/search/?text=', type: 'yandex' },
     { url: 'https://cn.bing.com/search?q=', type: 'bing' },
     { url: 'https://www.so.com/s?q=', type: 'so' },
-    { url: 'https://www.google.com/search?q=', type: 'google' },
     { url: 'https://www.douyin.com/search/', type: 'douyin' },
   ];
   $searchLogo.on('click', () => {

@@ -181,7 +181,7 @@ textarea {
     width: 40px;
     align-items: center;
     justify-content: center;
-    background: url("./img/scgoogle.png") center center no-repeat;
+    background: url("https://image.justmyfreedom.com/static/home/css/img/scgoogle.png") center center no-repeat;
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
     -moz-filter: grayscale(100%);
@@ -227,6 +227,11 @@ textarea {
 .search-logo.baidu,
 li.baidu {
     background-image: url("https://image.justmyfreedom.com/static/home/css/img/scbaidu.png")
+}
+
+.search-logo.yandex,
+li.yandex {
+    background-image: url("https://image.justmyfreedom.com/static/home/css/img/scyandex.png")
 }
 
 .search-logo.bing,
