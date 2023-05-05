@@ -18,15 +18,9 @@ destination: _site
 
 
 ## => Author and Social
-##############################
 author:
   name: JustMyFreedom
   email: justmyfreedom@outlook.com
-  # twitter: kitian616
-  # github:  kitian616
-  # googleplus: 101827554735084402671
-  # weibo: 234695683
-  # douban: kitian616
 
 # debug:
 #   compress: true
