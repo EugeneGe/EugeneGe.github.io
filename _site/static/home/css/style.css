@@ -87,6 +87,11 @@ textarea {
     font-size: 20px
 }
 
+
+.header_content .header__title h1>a {
+    font-family: serif;
+}
+
 .header_content .navigation {
     display: flex;
     -webkit-box-direction: normal;
@@ -141,7 +146,7 @@ textarea {
 .logo-box {
     display: flex;
     overflow: hidden;
-    margin-left: 250px;
+    justify-content: center;
     align-items: center
 }
 
