@@ -12,8 +12,12 @@ $(function () {
     { url: 'https://www.google.com/search?q=', type: 'google' },
     { url: 'https://www.baidu.com/s?wd=', type: 'baidu' },
     { url: 'https://www.sogou.com/web?query=', type: 'sogou' },
+    { url: 'https://search.yahoo.com/search?p=', type: 'yahoo' },
+    { url: 'https://www.ask.com/web?q=', type: 'ask' },
     { url: 'https://yandex.com/search/?text=', type: 'yandex' },
     { url: 'https://cn.bing.com/search?q=', type: 'bing' },
+    { url: 'https://duckduckgo.com/?q=', type: 'duckduckgo' },
+    { url: 'https://en.wikipedia.org/wiki/', type: 'wikipedia' },
     { url: 'https://www.so.com/s?q=', type: 'so' },
     { url: 'https://www.douyin.com/search/', type: 'douyin' },
   ];
