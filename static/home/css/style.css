@@ -241,6 +241,24 @@ li.yandex {
     background-image: url("https://image.justmyfreedom.com/static/home/css/img/scyandex.png")
 }
 
+.search-logo.yahoo,
+li.yahoo {
+    background-image: url("https://image.justmyfreedom.com/static/home/css/img/scyahoo.png")
+}
+
+.search-logo.duckduckgo,
+li.duckduckgo {
+    background-image: url("https://image.justmyfreedom.com/static/home/css/img/scduckduckgo.png")
+}
+
+.search-logo.wikipedia,
+li.wikipedia {
+    background-image: url("https://image.justmyfreedom.com/static/home/css/img/scwikipedia.png")
+}
+.search-logo.ask,
+li.ask {
+    background-image: url("https://image.justmyfreedom.com/static/home/css/img/scask.png")
+}
 .search-logo.bing,
 li.bing {
     background-image: url("https://image.justmyfreedom.com/static/home/css/img/scbing.png")
