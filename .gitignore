@@ -1,8 +1,6 @@
 # jekyll
 .jekyll-metadata
 .sass-cache
-_site/*
-!/_site/.gitkeep
 .jekyll-cache
 
 

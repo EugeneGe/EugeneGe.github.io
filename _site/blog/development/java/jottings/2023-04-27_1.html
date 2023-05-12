@@ -1,0 +1,141 @@
+<!DOCTYPE html> <html lang="en" dir="auto"> <head><meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=no"> <meta name="description" content="Spring中的事务回滚机制 在Spring框架中，事务管理是一项重要的功能。事务是一组相关操作的逻辑单元，要么全部成功执行，要么全部回滚。事务的回滚机制是指在事务执行过程中发生异常或满足特定条件时，将之前执行的操作全部回滚到事务开始之前的状态。 Spring框架提供了多种方式来管理事务，包括..."> <meta name="revised" content="bdbb22d976ce0c378d857cbe7d5ad687cbb5d73f"> <meta name="author" content="EugeneGe"> <meta name="generator" content="static vstatic"><meta name="theme-color" content="#2980b9"> <title>Spring中的事务回滚机制 · JustMyFreedom</title> <meta name="twitter:title" content="Spring中的事务回滚机制 · JustMyFreedom"> <meta name="twitter:description" content="Spring中的事务回滚机制 在Spring框架中，事务管理是一项重要的功能。事务是一组相关操作的逻辑单元，要么全部成功执行，要么全部回滚。事务的回滚机制是指在事务执行过程中发生异常或满足特定条件时，将之前执行的操作全部回滚到事务开始之前的状态。 Spring框架提供了多种方式来管理事务，包括..."> <meta name="twitter:card" content="summary"> <meta name="twitter:site" content="@EugeneGe"> <meta name="twitter:url" content="http://localhost:4000/blog/development/java/jottings/2023-04-27_1.html"> <meta name="twitter:creator" content="@static vstatic"> <meta property="og:title" content="Spring中的事务回滚机制 · JustMyFreedom"> <meta property="og:description" content="Spring中的事务回滚机制 在Spring框架中，事务管理是一项重要的功能。事务是一组相关操作的逻辑单元，要么全部成功执行，要么全部回滚。事务的回滚机制是指在事务执行过程中发生异常或满足特定条件时，将之前执行的操作全部回滚到事务开始之前的状态。 Spring框架提供了多种方式来管理事务，包括..."> <meta property="og:locale" content="en"> <meta property="og:url" content="http://localhost:4000/blog/development/java/jottings/2023-04-27_1.html"> <meta property="og:type" content="article"> <meta property="article:author" content="EugeneGe"> <meta property="article:published_time" content="2023-04-17T13:57:15+08:00"> <meta property="article:modified_time" content="2023-05-12T10:44:04+08:00"> <script type="application/ld+json"> { "@context": "https://schema.org", "@type": "Article", "mainEntityOfPage": { "@type": "WebPage", "@id": "http://localhost:4000/blog/development/java/jottings/2023-04-27_1.html" }, "headline": "Spring中的事务回滚机制 · JustMyFreedom", "image": [], "author": { "@type": "Person", "name": "EugeneGe" }, "datePublished": "2023-04-17T13:57:15+08:00", "dateModified": "2023-05-12T10:44:04+08:00", "publisher": { "@type": "User", "name": "EugeneGe", "logo": { "@type": "ImageObject", "url": "https://avatars.githubusercontent.com/u/46210586?v=4" } }, "description": "Spring中的事务回滚机制 在Spring框架中，事务管理是一项重要的功能。事务是一组相关操作的逻辑单元，要么全部成功执行，要么全部回滚。事务的回滚机制是指在事务执行过程中发生异常或满足特定条件时，将之前执行的操作全部回滚到事务开始之前的状态。 Spring框架提供了多种方式来管理事务，包括..." } </script> <link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="prev" href="http://localhost:4000/blog/development/java/jottings/2023-04-23_1.html"><link rel="next" href="http://localhost:4000/blog/development/java/jottings/2023-04-27_2.html"><link rel="canonical" href="http://localhost:4000/blog/development/java/jottings/2023-04-27_1.html"><link rel="icon" type="image/png" href="https://image.justmyfreedom.com//static/assets/ico/favicon-16x16.png"><link rel="icon" type="image/png" href="https://image.justmyfreedom.com//static/assets/ico/favicon-16x16.png" sizes="16x16"> <link rel="icon" type="image/png" href="https://image.justmyfreedom.com//static/assets/ico/favicon-32x32.png" sizes="32x32"> <link rel="icon" type="image/png" href="https://image.justmyfreedom.com//static/assets/ico/favicon-96x96.png" sizes="96x96"><link rel="mask-icon" href="/static/assets/images/favicon.svg" color="#2980b9"><link rel="apple-touch-icon" href="/static/assets/images/apple-touch-icon-300x300.jpg"> <link rel="stylesheet" href="/static/assets/css/theme.min.css"><script> window.ui = { title: "JustMyFreedom", baseurl: "", i18n: { search_results: "Search Results", search_results_found: "Search finished, found # page(s) matching the search query.", search_results_not_found: "Your search did not match any documents, please make sure that all characters are spelled correctly!" } }; </script> </head> <body class="container"><div class="sidebar-wrap overflow-hidden"> <div class="sidebar height-full overflow-y-scroll overflow-x-hidden"> <div class="header d-flex flex-column p-3 text-center"> <div class="title pb-1"> <a class="h4 no-underline py-1 px-2 rounded-1" href="/" title="成功只有一种，那就是按照自己喜欢的方式过完一生。"> <i class="fa fa-home"></i> JustMyFreedom </a> </div> <span class="version">1.0.0</span> <form class="search pt-2" action="/search.html" method="get" autocomplete="off"> <input class="form-control input-block input-sm" type="text" name="q" placeholder="search"> </form> </div> <div class="toctree py-2" data-spy="affix" role="navigation" aria-label="main navigation"> <ul> </ul> <a class="caption d-block text-uppercase no-wrap px-2 py-0" href="/blog/"> JustMyFreedom </a><ul> <li class="toc level-1"> <a class="d-flex flex-items-baseline" href="/blog/frontier/" title="前沿"> 前沿 </a><ul> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/frontier/recommend/" title="推荐"> 推荐 </a><ul> <li class="toc level-3 " data-sort="1" data-level="3"> <a class="d-flex flex-items-baseline " href="/blog/frontier/recommend/2023-04-27_1.html" title="推荐几款好用的自用软件">1. 推荐几款好用的自用软件</a> </li> <li class="toc level-3 " data-sort="1" data-level="3"> <a class="d-flex flex-items-baseline " href="/blog/frontier/recommend/2023-04-23_1.html" title="Just My Socks 介绍，Just My Socks 是什么？">1. Just My Socks 介绍，Just My Socks 是什么？</a> </li>
+</ul> </li> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/frontier/new/" title="新闻"> 新闻 </a><ul> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/frontier/new/technology/" title="科技"> 科技 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/frontier/new/technology/2023-04-23_1.html" title="ChatGpt">1. ChatGpt</a> </li>
+</ul> </li> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/frontier/new/life/" title="生活"> 生活 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/frontier/new/life/2023-04-23_1.html" title="2023年计划考试时间(全年)">1. 2023年计划考试时间(全年)</a> </li>
+</ul> </li>
+</ul> </li>
+</ul> </li> <li class="toc level-1"> <a class="d-flex flex-items-baseline" href="/blog/development/" title="开发随笔"> 开发随笔 </a><ul> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/development/interview/" title="面试宝典"> 面试宝典 </a><ul> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/interview/java/" title="Java面试题"> Java面试题 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/interview/java/2023-04-23_1.html" title="Java面试宝典一(2023最新Java面试题)">1. Java面试宝典一(2023最新Java面试题)</a> </li> <li class="toc level-4 " data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/interview/java/2023-04-23_2.html" title="Java面试宝典二(2023最新Java面试题)">2. Java面试宝典二(2023最新Java面试题)</a> </li> <li class="toc level-4 " data-sort="3" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/interview/java/2023-04-23_3.html" title="Java面试宝典三(2023最新Java面试题)">3. Java面试宝典三(2023最新Java面试题)</a> </li> <li class="toc level-4 " data-sort="4" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/interview/java/2023-04-23_4.html" title="Java面试宝典四(2023最新Java面试题)">4. Java面试宝典四(2023最新Java面试题)</a> </li>
+</ul> </li>
+</ul> </li> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/development/html/" title="前端笔记"> 前端笔记 </a><ul> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/html/jottings/" title="随笔"> 随笔 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/html/jottings/2023-04-21_1.html" title="html页面如何设置适配移动端">1. html页面如何设置适配移动端</a> </li> <li class="toc level-4 " data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/html/jottings/2023-04-27_1.html" title="HTML页面中返回顶部的几种实现">2. HTML页面中返回顶部的几种实现</a> </li>
+</ul> </li> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/html/webdesign/" title="Jekyll网站开发"> Jekyll网站开发 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/html/webdesign/2023-04-24_1.html" title="Jekyll安装配置和使用">1. Jekyll安装配置和使用</a> </li> <li class="toc level-4 " data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/html/webdesign/2023-04-24_2.html" title="七牛云对象存储(图床)免费使用">2. 七牛云对象存储(图床)免费使用</a> </li>
+</ul> </li> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/html/seo/" title="SEO优化"> SEO优化 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/html/seo/2023-04-27_1.html" title="NGINX强制使用https访问(http跳转到https)">1. NGINX强制使用https访问(http跳转到https)</a> </li> <li class="toc level-4 " data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/html/seo/2023-04-27_2.html" title="最新主流搜索引擎提交sitemap大全（网站地图）">2. 最新主流搜索引擎提交sitemap大全（网站地图）</a> </li> <li class="toc level-4 " data-sort="3" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/html/seo/2023-04-27_3.html" title="SEO实操小技巧关键字">3. SEO实操小技巧关键字</a> </li>
+</ul> </li>
+</ul> </li> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/development/java/" title="Java笔记"> Java笔记 </a><ul> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/java/jottings/" title="随笔"> 随笔 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/java/jottings/2023-04-23_1.html" title="Java学习大纲路径">1. Java学习大纲路径</a> </li> <li class="toc level-4 current" data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline current" href="/blog/development/java/jottings/2023-04-27_1.html" title="Spring中的事务回滚机制">2. Spring中的事务回滚机制</a> </li> <li class="toc level-4 " data-sort="3" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/java/jottings/2023-04-27_2.html" title="Java开发环境安装配置JDK+Maven+Tomcat">3. Java开发环境安装配置JDK+Maven+Tomcat</a> </li>
+</ul> </li> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/java/basics/" title="Java基础"> Java基础 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/java/basics/2023-04-24_1.html" title="Java中map常见操作集合">1. Java中map常见操作集合</a> </li> <li class="toc level-4 " data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/java/basics/2023-04-24_2.html" title="Java中Json转换的常见操作方式">2. Java中Json转换的常见操作方式</a> </li> <li class="toc level-4 " data-sort="3" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/java/basics/2023-04-24_3.html" title="Java中计算List求和或List对象中某个字段的总和">3. Java中计算List求和或List对象中某个字段的总和</a> </li> <li class="toc level-4 " data-sort="3" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/java/basics/2023-04-27_1.html" title="Java中BigDecimal类型详解">3. Java中BigDecimal类型详解</a> </li>
+</ul> </li>
+</ul> </li> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/development/python/" title="Python笔记"> Python笔记 </a><ul> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/python/django/" title="Django"> Django </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/python/django/2023-04-27_1.html" title="Django中url与path及re_path区别">1. Django中url与path及re_path区别</a> </li>
+</ul> </li> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/python/jottings/" title="随笔"> 随笔 </a><ul> </ul> </li>
+</ul> </li> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/development/os/" title="操作系统"> 操作系统 </a><ul> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/os/linux/" title="linux"> linux </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/os/linux/2023-04-23_1.html" title="Linux的上传和下载功能">1. Linux的上传和下载功能</a> </li>
+</ul> </li> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/os/windows/" title="windows"> windows </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/os/windows/2023-04-27_1.html" title="Windows端口常见问题解决">1. Windows端口常见问题解决</a> </li>
+</ul> </li>
+</ul> </li> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/development/tool/" title="工具"> 工具 </a><ul> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/tool/redis/" title="Redis"> Redis </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/tool/redis/2023-04-30_1.html" title="Windows部署redis集群模式">1. Windows部署redis集群模式</a> </li> <li class="toc level-4 " data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/tool/redis/2023-04-30_2.html" title="redis如何设置密码">2. redis如何设置密码</a> </li>
+</ul> </li> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/tool/git/" title="Git"> Git </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/tool/git/2023-04-27_1.html" title="最新Github创建仓库,将项目上传到GitHub">1. 最新Github创建仓库,将项目上传到GitHub</a> </li> <li class="toc level-4 " data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/tool/git/2023-04-28_1.html" title="Git一份代码同时提交两个Git仓库">2. Git一份代码同时提交两个Git仓库</a> </li>
+</ul> </li> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/tool/maven/" title="Java基础"> Java基础 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/tool/maven/2023-04-27_1.html" title="Maven推送本地jar包到仓库">1. Maven推送本地jar包到仓库</a> </li>
+</ul> </li>
+</ul> </li>
+</ul> </li> <li class="toc level-1"> <a class="d-flex flex-items-baseline" href="/blog/life/" title="生活随笔"> 生活随笔 </a><ul> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/life/travel/" title="趣事小记"> 趣事小记 </a><ul> </ul> </li> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/life/poetry/" title="诗词鉴赏"> 诗词鉴赏 </a><ul> </ul> </li>
+</ul> </li> <li class="toc level-1"> <a class="d-flex flex-items-baseline" href="/blog/about/" title="关于"> 关于 </a><ul> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/about/website/" title="网站"> 网站 </a><ul> <li class="toc level-3 " data-sort="1" data-level="3"> <a class="d-flex flex-items-baseline " href="/blog/about/website/2023-04-23_1.html" title="关于Justmyfreedom网站">1. 关于Justmyfreedom网站</a> </li>
+</ul> </li>
+</ul> </li>
+</ul> </div> </div> </div> <div class="content-wrap"> <div class="header d-flex flex-justify-between p-2 hide-lg hide-xl" aria-label="top navigation"> <button id="toggle" aria-label="Toggle menu" class="btn-octicon p-2 m-0 text-white" type="button"> <i class="fa fa-bars"></i> </button> <div class="title flex-1 d-flex flex-justify-center"> <a class="h4 no-underline py-1 px-2 rounded-1" href="/">JustMyFreedom</a> </div> </div> <div class="content p-3 p-sm-5"> <div class="navigation-top d-flex flex-justify-between"> <ul class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation"> <li class="breadcrumb-item"> <a class="no-underline" href="/" title="成功只有一种，那就是按照自己喜欢的方式过完一生。"> <i class="fa fa-home"></i> </a> </li>
+<li class="breadcrumb-item"><a href="/blog/">blog</a></li>
+<li class="breadcrumb-item"><a href="/blog/development/">development</a></li>
+<li class="breadcrumb-item"><a href="/blog/development/java/">java</a></li>
+<li class="breadcrumb-item"><a href="/blog/development/java/jottings/">jottings</a></li>
+<li class="breadcrumb-item" aria-current="page">Spring中的事务回滚机制</li>
+</ul> </div> <hr> <div role="main" itemscope="itemscope" itemtype="https://schema.org/Article"> <div class="markdown-body" itemprop="articleBody"> <h1 id="spring中的事务回滚机制">Spring中的事务回滚机制</h1> <p>在Spring框架中，事务管理是一项重要的功能。事务是一组相关操作的逻辑单元，要么全部成功执行，要么全部回滚。事务的回滚机制是指在事务执行过程中发生异常或满足特定条件时，将之前执行的操作全部回滚到事务开始之前的状态。</p> <p>Spring框架提供了多种方式来管理事务，包括基于注解的声明式事务管理和编程式事务管理。无论使用哪种方式，Spring的事务回滚机制都是基于AOP（面向切面编程）和数据库的事务支持。</p> <h2 id="一-声明式事务管理">一. 声明式事务管理</h2> <p>在Spring中，声明式事务管理是一种方便的方式来管理事务，它允许使用注解或XML配置来声明事务的行为，而无需在业务代码中显式处理事务操作。</p> <p>声明式事务管理的关键是使用<a href="https://github.com/Transactional" class="user-mention">@Transactional</a>注解。通过在方法或类上添加<a href="https://github.com/Transactional" class="user-mention">@Transactional</a>注解，可以指定事务的传播行为、回滚规则等属性。当方法被调用时，Spring会自动为该方法开启事务，并在方法执行结束后根据注解的配置自动提交或回滚事务。</p> <p>下面是声明式事务管理的一些重要概念和使用方式：</p> <p><strong><a href="https://github.com/Transactional" class="user-mention">@Transactional</a>注解：</strong></p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>@Transactional注解可应用于方法或类级别。
+当应用于方法时，它指示该方法应在事务范围内执行。
+当应用于类时，它指示该类中的所有公共方法都应在事务范围内执行。
+@Transactional注解可以设置多个属性，例如传播行为、隔离级别、回滚规则等。
+</code></pre>  </div></div> <p><strong>事务传播行为：</strong></p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>事务传播行为定义了事务方法如何与已经存在的事务进行交互。
+一些常见的传播行为包括REQUIRED、REQUIRES_NEW、SUPPORTS、NOT_SUPPORTED、NEVER、MANDATORY等。
+REQUIRED是默认的传播行为，它指示方法应该在已经存在的事务中执行，如果没有事务则创建一个新事务。
+</code></pre>  </div></div> <p><strong>事务回滚规则：</strong></p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>事务回滚规则定义了哪些异常触发事务回滚。
+默认情况下，Spring仅在遇到RuntimeException及其子类异常时才会回滚事务。
+可以使用@Transactional注解的rollbackFor属性指定需要回滚的异常类型，或者使用noRollbackFor属性指定不需要回滚的异常类型。
+</code></pre>  </div></div> <p><strong>XML配置方式：</strong></p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>除了使用注解方式外，还可以使用XML配置声明式事务管理。
+在XML配置中，可以定义事务管理器、切面和事务通知等元素来实现声明式事务管理。
+</code></pre>  </div></div> <p>下面的示例展示了如何在Spring中使用声明式事务管理：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+public void performTransaction() {
+    // 业务逻辑代码
+}
+
+@Transactional(propagation = Propagation.REQUIRES_NEW)
+public void performAnotherTransaction() {
+    // 业务逻辑代码
+}
+
+</code></pre>  </div></div> <p>在示例中，performTransaction()方法将在已存在的事务中执行，如果没有事务则创建一个新事务。该方法在遇到任何Exception及其子类异常时都会触发事务回滚。而performAnotherTransaction()方法使用REQUIRES_NEW传播行为，它总是创建一个新事务并在方法执行结束后提交。</p> <p>通过声明式事务管理，可以将事务相关的代码与业务逻辑代码分开。</p> <h2 id="二-编程式事务管理">二. 编程式事务管理</h2> <p>在Spring中，编程式事务管理是一种手动管理事务的方式，通过编写代码来控制事务的开始、提交和回滚。相对于声明式事务管理，编程式事务管理提供了更细粒度的事务控制。</p> <p>编程式事务管理涉及以下几个重要的组件和操作：</p> <p><strong>PlatformTransactionManager：</strong></p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>PlatformTransactionManager是Spring框架中的事务管理器接口。
+它定义了开始事务、提交事务和回滚事务等操作的方法。
+</code></pre>  </div></div> <p><strong>TransactionDefinition：</strong></p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>TransactionDefinition是用于定义事务的接口，它包含了事务的传播行为、隔离级别、超时时间等属性。
+通过TransactionDefinition，可以指定事务的行为方式。
+</code></pre>  </div></div> <p><strong>TransactionStatus：</strong></p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>TransactionStatus是表示事务状态的接口。
+它包含了事务的当前状态信息，例如是否是一个新事务、是否已经完成等。
+</code></pre>  </div></div> <p><strong>TransactionTemplate：</strong></p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>TransactionTemplate是Spring提供的简化编程式事务管理的工具类。
+它封装了事务的启动、提交和回滚等操作，简化了事务管理的代码编写。
+</code></pre>  </div></div> <p>示例展示了如何在Spring中使用编程式事务管理：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>@Autowired
+private PlatformTransactionManager transactionManager;
+
+public void performTransaction() {
+    TransactionDefinition definition = new DefaultTransactionDefinition();
+    TransactionStatus status = transactionManager.getTransaction(definition);
+    
+    try {
+        // 业务逻辑代码
+        
+        transactionManager.commit(status);
+    } catch (Exception e) {
+        transactionManager.rollback(status);
+    }
+}
+
+</code></pre>  </div></div> <p>在示例中，首先通过<a href="https://github.com/Autowired" class="user-mention">@Autowired</a>注解注入了PlatformTransactionManager事务管理器。然后创建一个TransactionDefinition对象来定义事务的属性。接下来，通过调用transactionManager.getTransaction(definition)方法获取一个TransactionStatus对象来表示当前事务的状态。</p> <p>在try块中，编写了业务逻辑代码。如果业务逻辑执行成功，调用transactionManager.commit(status)方法提交事务。如果在try块中抛出了异常，会进入catch块，调用transactionManager.rollback(status)方法回滚事务。</p> <p>通过编程式事务管理，可以在需要的时候手动控制事务的开始、提交和回滚，以满足更复杂的事务场景。然而，相对于声明式事务管理，编程式事务管理需要更多的手动操作和代码编写。</p> <h2 id="三-异常触发事务回滚">三. 异常触发事务回滚</h2> <p>在Spring中的事务回滚机制中，异常的抛出是触发事务回滚的重要因素之一。当在事务内部抛出特定类型的异常时，Spring会自动回滚事务，将所有已执行的数据库操作恢复到事务开始之前的状态。</p> <p>以下是关于异常触发事务回滚的几个要点：</p> <p><strong>默认回滚规则：</strong></p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>默认情况下，Spring只有在遇到RuntimeException及其子类异常时才会触发事务回滚。
+RuntimeException是未检查异常，它的抛出通常表示程序运行时出现了严重错误。
+Checked异常（非RuntimeException的异常）不会触发事务回滚。
+</code></pre>  </div></div> <p><strong>异常回滚规则配置：</strong></p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>可以通过@Transactional注解的rollbackFor属性来配置需要触发事务回滚的异常类型。
+例如，@Transactional(rollbackFor = {Exception.class})指示任何异常（包括RuntimeException和Checked异常）都将触发事务回滚。
+</code></pre>  </div></div> <p><strong>手动触发事务回滚：</strong></p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>在某些情况下，可能希望手动触发事务回滚，而不是依赖异常的抛出。
+在方法中，可以使用TransactionAspectSupport.currentTransactionStatus().setRollbackOnly()来手动将事务标记为回滚状态。
+调用该方法后，事务将在方法执行结束时回滚。
+</code></pre>  </div></div> <p>下面示例展示了异常触发事务回滚的情况：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>@Transactional
+public void performTransaction() {
+    // 业务逻辑代码
+    if (someCondition) {
+        throw new RuntimeException("Something went wrong");
+    }
+}
+
+</code></pre>  </div></div> <p>在上面的示例中，performTransaction()方法使用<a href="https://github.com/Transactional" class="user-mention">@Transactional</a>注解来声明一个事务。如果在业务逻辑代码中满足了某个条件，会抛出RuntimeException，这将导致事务回滚。所有在抛出异常之前执行的数据库操作都将被回滚，保持数据的一致性。</p> <p>通过异常触发事务回滚，可以在遇到错误或异常情况时保证数据的完整性，避免数据不一致的问题。同时，也可以通过手动触发事务回滚来处理一些特殊情况，以满足更灵活的事务控制需求。</p> <h2 id="四-事务传播行为">四. 事务传播行为</h2> <p>在Spring中，事务传播行为定义了事务方法与已经存在的事务之间的交互方式。事务传播行为决定了在方法调用链中如何处理事务边界，以及如何管理事务的隔离性、并发控制等方面的行为。</p> <p>以下是Spring中常见的事务传播行为：</p> <p><strong>REQUIRED（默认）：</strong></p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>REQUIRED传播行为指示方法应该在已经存在的事务中执行。如果当前没有事务存在，则创建一个新事务。
+如果方法被嵌套调用，那么内部方法将使用外部方法的事务。
+</code></pre>  </div></div> <p><strong>REQUIRES_NEW：</strong></p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>REQUIRES_NEW传播行为指示方法应该创建一个新的事务，并在执行期间挂起当前事务（如果存在）。
+如果方法被嵌套调用，内部方法将挂起外部方法的事务并创建一个新的事务。
+</code></pre>  </div></div> <p><strong>SUPPORTS：</strong></p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>SUPPORTS传播行为指示方法应该在事务存在的情况下以事务方式执行。如果当前没有事务存在，那么方法将以非事务方式执行。
+</code></pre>  </div></div> <p><strong>NOT_SUPPORTED：</strong></p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>NOT_SUPPORTED传播行为指示方法应该以非事务方式执行。如果当前存在事务，那么该事务将被挂起。
+</code></pre>  </div></div> <p><strong>NEVER：</strong></p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>NEVER传播行为指示方法不应该在事务内部执行。如果当前存在事务，则抛出异常。
+</code></pre>  </div></div> <p><strong>MANDATORY：</strong></p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>MANDATORY传播行为指示方法应该在已经存在的事务中执行。如果当前没有事务存在，则抛出异常。
+</code></pre>  </div></div> <p><strong>NESTED：</strong></p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>NESTED传播行为指示方法应该在一个已经存在的事务中执行，但是作为嵌套事务的一部分。
+如果当前没有事务存在，则创建一个新的事务。如果外部事务提交，嵌套事务也会被提交。如果外部事务回滚，嵌套事务会回滚到保存点。
+</code></pre>  </div></div> <p>在使用<a href="https://github.com/Transactional" class="user-mention">@Transactional</a>注解或编程式事务管理时，可以指定适合需求的事务传播行为。通过选择正确的传播行为，可以确保事务在方法调用链中的正确传播和管理，以保证数据的一致性和完整性。</p> <p>以下示例展示了如何在Spring中使用事务传播行为：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>@Transactional(propagation = Propagation.REQUIRED)
+public void outerMethod() {
+    // 业务逻辑代码
+    innerMethod();
+}
+
+@Transactional(propagation = Propagation.REQUIRES_NEW)
+public void innerMethod() {
+    // 业务逻辑代码
+}
+
+</code></pre>  </div></div> <p>在上面的示例中，outerMethod()方法使用REQUIRED传播行为，默认情况下将参与到外部方法的事务中。而innerMethod()方法使用REQUIRES_NEW传播行为，它会创建一个新的事务并独立执行。无论outerMethod()方法的事务提交还是回滚，innerMethod()方法都创建一个新的事务。</p> <p><strong>总结：</strong> Spring的事务回滚机制通过注解或编程的方式提供了灵活的事务管理。它基于AOP和数据库的事务支持，允许开发人员在方法或类级别声明事务，并根据业务需求进行配置。通过合理使用事务的传播行为和异常处理，可以确保数据的一致性和完整性。</p> </div> <div class="markdown-content-footer"> <p>感谢各位的阅读，想要及时了解最新信息或建议，请关注公众号：<a href="https://mp.weixin.qq.com/s/i7Qw4I3glZXx-ctWJeMp_w">终南有客</a> 或邮箱：<a>justmyfreedom@outlook.com</a></p> </div> </div> <div class="navigation-bottom d-flex flex-justify-between py-3" role="navigation" aria-label="footer navigation"> <div class="prev"><a href="/blog/development/java/jottings/2023-04-23_1.html" class="btn" title="Java学习大纲路径" accesskey="p" rel="prev"> <i class="fa fa-arrow-circle-left"></i> Previous </a></div> <div class="next"><a href="/blog/development/java/jottings/2023-04-27_2.html" class="btn" title="Java开发环境安装配置JDK+Maven+Tomcat" accesskey="n" rel="next"> Next <i class="fa fa-arrow-circle-right"></i> </a></div> </div>
+<hr> <div class="copyright text-center text-gray" role="contentinfo"> <i class="fa fa-copyright"></i> <span class="time">2023,</span> <a class="text-gray" href="http://localhost:4000" rel="noreferrer" target="_blank"> 终南有客 </a> Revision <a class="text-gray" href="http://localhost:4000/commit/1.0.0" title="1.0.0" rel="noreferrer" target="_blank"> 1.0.0 </a> <br> <div class="generator"> © JustMyFreedom 2023, created by 终南有客. </div> </div> </div> </div> <div class="addons-wrap d-flex flex-column overflow-y-auto"> <div class="status d-flex flex-justify-between p-2"> <div class="title p-1"> <i class="fa fa-book"></i> JustMyFreedom </div> <div class="branch p-1"> <span class="name"> </span> <i class="fa fa-caret-down"></i> </div> </div> <div class="addons d-flex flex-column height-full p-2 d-none"> <dl> <dt>JustMyFreedom</dt> <dd> <a href="http://localhost:4000" title="Homepage"> <i class="fa fa-android"></i> Homepage </a> </dd> <dd> <a href="http://localhost:4000" title="Issues"> <i class="fa fa-question-circle-o"></i> Issues </a> </dd> <dd> <a href="http://localhost:4000" title="Size Kb"> <i class="fa fa-download"></i> Download </a> </dd> </dl> <hr> <div class="license f6 pb-2"> This <a href="http://localhost:4000/" title="JustMyFreedom">website</a> was created by <a href="">终南有客</a>. </div> </div> </div> <script src="/static/assets/js/jquery.min.js"></script><script src="/static/assets/js/theme.min.js"></script> </body> </html>

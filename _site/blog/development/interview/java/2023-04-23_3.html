@@ -1,0 +1,213 @@
+<!DOCTYPE html> <html lang="en" dir="auto"> <head><meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=no"> <meta name="description" content="Java面试宝典三(2023最新Java面试题) 一. Spring/Spring MVC 1. 为什么要使用 spring？ spring 提供 ioc 技术，容器会帮你管理依赖的对象，从而不需要自己创建和管理依赖对象了，更轻松的实现了程序的解耦。 spring 提供了事务支持，使得事务操作..."> <meta name="revised" content="bdbb22d976ce0c378d857cbe7d5ad687cbb5d73f"> <meta name="author" content="EugeneGe"> <meta name="generator" content="static vstatic"><meta name="theme-color" content="#2980b9"> <title>Java面试宝典三(2023最新Java面试题) · JustMyFreedom</title> <meta name="twitter:title" content="Java面试宝典三(2023最新Java面试题) · JustMyFreedom"> <meta name="twitter:description" content="Java面试宝典三(2023最新Java面试题) 一. Spring/Spring MVC 1. 为什么要使用 spring？ spring 提供 ioc 技术，容器会帮你管理依赖的对象，从而不需要自己创建和管理依赖对象了，更轻松的实现了程序的解耦。 spring 提供了事务支持，使得事务操作..."> <meta name="twitter:card" content="summary"> <meta name="twitter:site" content="@EugeneGe"> <meta name="twitter:url" content="http://localhost:4000/blog/development/interview/java/2023-04-23_3.html"> <meta name="twitter:creator" content="@static vstatic"> <meta property="og:title" content="Java面试宝典三(2023最新Java面试题) · JustMyFreedom"> <meta property="og:description" content="Java面试宝典三(2023最新Java面试题) 一. Spring/Spring MVC 1. 为什么要使用 spring？ spring 提供 ioc 技术，容器会帮你管理依赖的对象，从而不需要自己创建和管理依赖对象了，更轻松的实现了程序的解耦。 spring 提供了事务支持，使得事务操作..."> <meta property="og:locale" content="en"> <meta property="og:url" content="http://localhost:4000/blog/development/interview/java/2023-04-23_3.html"> <meta property="og:type" content="article"> <meta property="article:author" content="EugeneGe"> <meta property="article:published_time" content="2023-04-17T13:57:15+08:00"> <meta property="article:modified_time" content="2023-05-12T10:44:04+08:00"> <script type="application/ld+json"> { "@context": "https://schema.org", "@type": "Article", "mainEntityOfPage": { "@type": "WebPage", "@id": "http://localhost:4000/blog/development/interview/java/2023-04-23_3.html" }, "headline": "Java面试宝典三(2023最新Java面试题) · JustMyFreedom", "image": [], "author": { "@type": "Person", "name": "EugeneGe" }, "datePublished": "2023-04-17T13:57:15+08:00", "dateModified": "2023-05-12T10:44:04+08:00", "publisher": { "@type": "User", "name": "EugeneGe", "logo": { "@type": "ImageObject", "url": "https://avatars.githubusercontent.com/u/46210586?v=4" } }, "description": "Java面试宝典三(2023最新Java面试题) 一. Spring/Spring MVC 1. 为什么要使用 spring？ spring 提供 ioc 技术，容器会帮你管理依赖的对象，从而不需要自己创建和管理依赖对象了，更轻松的实现了程序的解耦。 spring 提供了事务支持，使得事务操作..." } </script> <link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="prev" href="http://localhost:4000/blog/development/interview/java/2023-04-23_2.html"><link rel="next" href="http://localhost:4000/blog/development/interview/java/2023-04-23_4.html"><link rel="canonical" href="http://localhost:4000/blog/development/interview/java/2023-04-23_3.html"><link rel="icon" type="image/png" href="https://image.justmyfreedom.com//static/assets/ico/favicon-16x16.png"><link rel="icon" type="image/png" href="https://image.justmyfreedom.com//static/assets/ico/favicon-16x16.png" sizes="16x16"> <link rel="icon" type="image/png" href="https://image.justmyfreedom.com//static/assets/ico/favicon-32x32.png" sizes="32x32"> <link rel="icon" type="image/png" href="https://image.justmyfreedom.com//static/assets/ico/favicon-96x96.png" sizes="96x96"><link rel="mask-icon" href="/static/assets/images/favicon.svg" color="#2980b9"><link rel="apple-touch-icon" href="/static/assets/images/apple-touch-icon-300x300.jpg"> <link rel="stylesheet" href="/static/assets/css/theme.min.css"><script> window.ui = { title: "JustMyFreedom", baseurl: "", i18n: { search_results: "Search Results", search_results_found: "Search finished, found # page(s) matching the search query.", search_results_not_found: "Your search did not match any documents, please make sure that all characters are spelled correctly!" } }; </script> </head> <body class="container"><div class="sidebar-wrap overflow-hidden"> <div class="sidebar height-full overflow-y-scroll overflow-x-hidden"> <div class="header d-flex flex-column p-3 text-center"> <div class="title pb-1"> <a class="h4 no-underline py-1 px-2 rounded-1" href="/" title="成功只有一种，那就是按照自己喜欢的方式过完一生。"> <i class="fa fa-home"></i> JustMyFreedom </a> </div> <span class="version">1.0.0</span> <form class="search pt-2" action="/search.html" method="get" autocomplete="off"> <input class="form-control input-block input-sm" type="text" name="q" placeholder="search"> </form> </div> <div class="toctree py-2" data-spy="affix" role="navigation" aria-label="main navigation"> <ul> </ul> <a class="caption d-block text-uppercase no-wrap px-2 py-0" href="/blog/"> JustMyFreedom </a><ul> <li class="toc level-1"> <a class="d-flex flex-items-baseline" href="/blog/frontier/" title="前沿"> 前沿 </a><ul> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/frontier/recommend/" title="推荐"> 推荐 </a><ul> <li class="toc level-3 " data-sort="1" data-level="3"> <a class="d-flex flex-items-baseline " href="/blog/frontier/recommend/2023-04-27_1.html" title="推荐几款好用的自用软件">1. 推荐几款好用的自用软件</a> </li> <li class="toc level-3 " data-sort="1" data-level="3"> <a class="d-flex flex-items-baseline " href="/blog/frontier/recommend/2023-04-23_1.html" title="Just My Socks 介绍，Just My Socks 是什么？">1. Just My Socks 介绍，Just My Socks 是什么？</a> </li>
+</ul> </li> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/frontier/new/" title="新闻"> 新闻 </a><ul> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/frontier/new/technology/" title="科技"> 科技 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/frontier/new/technology/2023-04-23_1.html" title="ChatGpt">1. ChatGpt</a> </li>
+</ul> </li> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/frontier/new/life/" title="生活"> 生活 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/frontier/new/life/2023-04-23_1.html" title="2023年计划考试时间(全年)">1. 2023年计划考试时间(全年)</a> </li>
+</ul> </li>
+</ul> </li>
+</ul> </li> <li class="toc level-1"> <a class="d-flex flex-items-baseline" href="/blog/development/" title="开发随笔"> 开发随笔 </a><ul> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/development/interview/" title="面试宝典"> 面试宝典 </a><ul> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/interview/java/" title="Java面试题"> Java面试题 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/interview/java/2023-04-23_1.html" title="Java面试宝典一(2023最新Java面试题)">1. Java面试宝典一(2023最新Java面试题)</a> </li> <li class="toc level-4 " data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/interview/java/2023-04-23_2.html" title="Java面试宝典二(2023最新Java面试题)">2. Java面试宝典二(2023最新Java面试题)</a> </li> <li class="toc level-4 current" data-sort="3" data-level="4"> <a class="d-flex flex-items-baseline current" href="/blog/development/interview/java/2023-04-23_3.html" title="Java面试宝典三(2023最新Java面试题)">3. Java面试宝典三(2023最新Java面试题)</a> </li> <li class="toc level-4 " data-sort="4" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/interview/java/2023-04-23_4.html" title="Java面试宝典四(2023最新Java面试题)">4. Java面试宝典四(2023最新Java面试题)</a> </li>
+</ul> </li>
+</ul> </li> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/development/html/" title="前端笔记"> 前端笔记 </a><ul> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/html/jottings/" title="随笔"> 随笔 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/html/jottings/2023-04-21_1.html" title="html页面如何设置适配移动端">1. html页面如何设置适配移动端</a> </li> <li class="toc level-4 " data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/html/jottings/2023-04-27_1.html" title="HTML页面中返回顶部的几种实现">2. HTML页面中返回顶部的几种实现</a> </li>
+</ul> </li> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/html/webdesign/" title="Jekyll网站开发"> Jekyll网站开发 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/html/webdesign/2023-04-24_1.html" title="Jekyll安装配置和使用">1. Jekyll安装配置和使用</a> </li> <li class="toc level-4 " data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/html/webdesign/2023-04-24_2.html" title="七牛云对象存储(图床)免费使用">2. 七牛云对象存储(图床)免费使用</a> </li>
+</ul> </li> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/html/seo/" title="SEO优化"> SEO优化 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/html/seo/2023-04-27_1.html" title="NGINX强制使用https访问(http跳转到https)">1. NGINX强制使用https访问(http跳转到https)</a> </li> <li class="toc level-4 " data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/html/seo/2023-04-27_2.html" title="最新主流搜索引擎提交sitemap大全（网站地图）">2. 最新主流搜索引擎提交sitemap大全（网站地图）</a> </li> <li class="toc level-4 " data-sort="3" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/html/seo/2023-04-27_3.html" title="SEO实操小技巧关键字">3. SEO实操小技巧关键字</a> </li>
+</ul> </li>
+</ul> </li> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/development/java/" title="Java笔记"> Java笔记 </a><ul> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/java/jottings/" title="随笔"> 随笔 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/java/jottings/2023-04-23_1.html" title="Java学习大纲路径">1. Java学习大纲路径</a> </li> <li class="toc level-4 " data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/java/jottings/2023-04-27_1.html" title="Spring中的事务回滚机制">2. Spring中的事务回滚机制</a> </li> <li class="toc level-4 " data-sort="3" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/java/jottings/2023-04-27_2.html" title="Java开发环境安装配置JDK+Maven+Tomcat">3. Java开发环境安装配置JDK+Maven+Tomcat</a> </li>
+</ul> </li> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/java/basics/" title="Java基础"> Java基础 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/java/basics/2023-04-24_1.html" title="Java中map常见操作集合">1. Java中map常见操作集合</a> </li> <li class="toc level-4 " data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/java/basics/2023-04-24_2.html" title="Java中Json转换的常见操作方式">2. Java中Json转换的常见操作方式</a> </li> <li class="toc level-4 " data-sort="3" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/java/basics/2023-04-24_3.html" title="Java中计算List求和或List对象中某个字段的总和">3. Java中计算List求和或List对象中某个字段的总和</a> </li> <li class="toc level-4 " data-sort="3" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/java/basics/2023-04-27_1.html" title="Java中BigDecimal类型详解">3. Java中BigDecimal类型详解</a> </li>
+</ul> </li>
+</ul> </li> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/development/python/" title="Python笔记"> Python笔记 </a><ul> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/python/django/" title="Django"> Django </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/python/django/2023-04-27_1.html" title="Django中url与path及re_path区别">1. Django中url与path及re_path区别</a> </li>
+</ul> </li> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/python/jottings/" title="随笔"> 随笔 </a><ul> </ul> </li>
+</ul> </li> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/development/os/" title="操作系统"> 操作系统 </a><ul> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/os/linux/" title="linux"> linux </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/os/linux/2023-04-23_1.html" title="Linux的上传和下载功能">1. Linux的上传和下载功能</a> </li>
+</ul> </li> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/os/windows/" title="windows"> windows </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/os/windows/2023-04-27_1.html" title="Windows端口常见问题解决">1. Windows端口常见问题解决</a> </li>
+</ul> </li>
+</ul> </li> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/development/tool/" title="工具"> 工具 </a><ul> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/tool/redis/" title="Redis"> Redis </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/tool/redis/2023-04-30_1.html" title="Windows部署redis集群模式">1. Windows部署redis集群模式</a> </li> <li class="toc level-4 " data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/tool/redis/2023-04-30_2.html" title="redis如何设置密码">2. redis如何设置密码</a> </li>
+</ul> </li> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/tool/git/" title="Git"> Git </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/tool/git/2023-04-27_1.html" title="最新Github创建仓库,将项目上传到GitHub">1. 最新Github创建仓库,将项目上传到GitHub</a> </li> <li class="toc level-4 " data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/tool/git/2023-04-28_1.html" title="Git一份代码同时提交两个Git仓库">2. Git一份代码同时提交两个Git仓库</a> </li>
+</ul> </li> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/tool/maven/" title="Java基础"> Java基础 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/tool/maven/2023-04-27_1.html" title="Maven推送本地jar包到仓库">1. Maven推送本地jar包到仓库</a> </li>
+</ul> </li>
+</ul> </li>
+</ul> </li> <li class="toc level-1"> <a class="d-flex flex-items-baseline" href="/blog/life/" title="生活随笔"> 生活随笔 </a><ul> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/life/travel/" title="趣事小记"> 趣事小记 </a><ul> </ul> </li> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/life/poetry/" title="诗词鉴赏"> 诗词鉴赏 </a><ul> </ul> </li>
+</ul> </li> <li class="toc level-1"> <a class="d-flex flex-items-baseline" href="/blog/about/" title="关于"> 关于 </a><ul> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/about/website/" title="网站"> 网站 </a><ul> <li class="toc level-3 " data-sort="1" data-level="3"> <a class="d-flex flex-items-baseline " href="/blog/about/website/2023-04-23_1.html" title="关于Justmyfreedom网站">1. 关于Justmyfreedom网站</a> </li>
+</ul> </li>
+</ul> </li>
+</ul> </div> </div> </div> <div class="content-wrap"> <div class="header d-flex flex-justify-between p-2 hide-lg hide-xl" aria-label="top navigation"> <button id="toggle" aria-label="Toggle menu" class="btn-octicon p-2 m-0 text-white" type="button"> <i class="fa fa-bars"></i> </button> <div class="title flex-1 d-flex flex-justify-center"> <a class="h4 no-underline py-1 px-2 rounded-1" href="/">JustMyFreedom</a> </div> </div> <div class="content p-3 p-sm-5"> <div class="navigation-top d-flex flex-justify-between"> <ul class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation"> <li class="breadcrumb-item"> <a class="no-underline" href="/" title="成功只有一种，那就是按照自己喜欢的方式过完一生。"> <i class="fa fa-home"></i> </a> </li>
+<li class="breadcrumb-item"><a href="/blog/">blog</a></li>
+<li class="breadcrumb-item"><a href="/blog/development/">development</a></li>
+<li class="breadcrumb-item"><a href="/blog/development/interview/">interview</a></li>
+<li class="breadcrumb-item"><a href="/blog/development/interview/java/">java</a></li>
+<li class="breadcrumb-item" aria-current="page">Java面试宝典三(2023最新Java面试题)</li>
+</ul> </div> <hr> <div role="main" itemscope="itemscope" itemtype="https://schema.org/Article"> <div class="markdown-body" itemprop="articleBody"> <h1 id="java面试宝典三2023最新java面试题">Java面试宝典三(2023最新Java面试题)</h1> <h2 id="一-springspring-mvc"><strong>一. Spring/Spring MVC</strong></h2> <h3 id="1-为什么要使用-spring"><strong>1. 为什么要使用 spring？</strong></h3> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>spring 提供 ioc 技术，容器会帮你管理依赖的对象，从而不需要自己创建和管理依赖对象了，更轻松的实现了程序的解耦。
+spring 提供了事务支持，使得事务操作变的更加方便。
+spring 提供了面向切片编程，这样可以更方便的处理某一类的问题。
+更方便的框架集成，spring 可以很方便的集成其他框架，比如 MyBatis、hibernate 等。
+</code></pre>  </div></div> <h3 id="2-解释一下什么是-aop"><strong>2. 解释一下什么是 aop？</strong></h3> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>aop 是面向切面编程，通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。
+</code></pre>  </div></div> <p>简单来说就是统一处理某一"切面"（类）的问题的编程思想，比如统一处理日志、异常等。</p> <h3 id="3-解释一下什么是-ioc"><strong>3. 解释一下什么是 ioc？</strong></h3> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>ioc：Inversionof Control（中文：控制反转）是 spring 的核心，对于 spring 框架来说，就是由 spring 来负责控制对象的生命周期和对象间的关系。
+</code></pre>  </div></div> <p>简单来说，控制指的是当前对象对内部成员的控制权；控制反转指的是，这种控制权不由当前对象管理了，由其他（类,第三方容器）来管理。</p> <h3 id="4-spring-有哪些主要模块"><strong>4. spring 有哪些主要模块？</strong></h3> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>spring core：框架的最基础部分，提供 ioc 和依赖注入特性。
+spring context：构建于 core 封装包基础上的 context 封装包，提供了一种框架式的对象访问方法。
+spring dao：Data Access Object 提供了JDBC的抽象层。
+spring aop：提供了面向切面的编程实现，让你可以自定义拦截器、切点等。
+spring Web：提供了针对 Web 开发的集成特性，例如文件上传，利用 servlet listeners 进行 ioc 容器初始化和针对 Web 的 ApplicationContext。
+spring Web mvc：spring 中的 mvc 封装包提供了 Web 应用的 Model-View-Controller（MVC）的实现。
+</code></pre>  </div></div> <h3 id="5-spring-常用的注入方式有哪些"><strong>5. spring 常用的注入方式有哪些？</strong></h3> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>setter 属性注入
+构造方法注入
+注解方式注入
+</code></pre>  </div></div> <h3 id="6-spring-中的-bean-是线程安全的吗"><strong>6. spring 中的 bean 是线程安全的吗？</strong></h3> <p>spring 中的 bean 默认是单例模式，spring 框架并没有对单例 bean 进行多线程的封装处理。</p> <p>实际上大部分时候 spring bean 无状态的（比如 dao 类），所有某种程度上来说 bean 也是安全的，但如果 bean 有状态的话（比如 view model 对象），那就要开发者自己去保证线程安全了，最简单的就是改变 bean 的作用域，把"singleton"变更为"prototype"，这样请求 bean 相当于 new Bean()了，所以就可以保证线程安全了。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>有状态就是有数据存储功能。
+无状态就是不会保存数据。
+</code></pre>  </div></div> <h3 id="7-spring-支持几种-bean-的作用域"><strong>7. spring 支持几种 bean 的作用域？</strong></h3> <p>spring 支持 5 种作用域，如下：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>singleton：spring ioc 容器中只存在一个 bean 实例，bean 以单例模式存在，是系统默认值；
+prototype：每次从容器调用 bean 时都会创建一个新的示例，既每次 getBean()相当于执行 new Bean()操作；
+</code></pre>  </div></div> <p>Web 环境下的作用域：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>request：每次 http 请求都会创建一个 bean；
+session：同一个 http session 共享一个 bean 实例；
+global-session：用于 portlet 容器，因为每个 portlet 有单独的 session，globalsession 提供一个全局性的 http session。
+</code></pre>  </div></div> <p><strong>「注意：」</strong> 使用 prototype 作用域需要慎重的思考，因为频繁创建和销毁 bean 会带来很大的性能开销。</p> <h3 id="8-spring-自动装配-bean-有哪些方式"><strong>8. spring 自动装配 bean 有哪些方式？</strong></h3> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>no：默认值，表示没有自动装配，应使用显式 bean 引用进行装配。
+byName：它根据 bean 的名称注入对象依赖项。
+byType：它根据类型注入对象依赖项。
+构造函数：通过构造函数来注入依赖项，需要设置大量的参数。
+autodetect：容器首先通过构造函数使用 autowire 装配，如果不能，则通过 byType 自动装配。
+</code></pre>  </div></div> <h3 id="9-spring-事务实现方式有哪些"><strong>9. spring 事务实现方式有哪些？</strong></h3> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>声明式事务：声明式事务也有两种实现方式，基于 xml 配置文件的方式和注解方式（在类上添加 @Transaction 注解）。
+编码方式：提供编码的形式管理和维护事务。
+</code></pre>  </div></div> <h3 id="10-说一下-spring-的事务隔离"><strong>10. 说一下 spring 的事务隔离？</strong></h3> <p>spring 有五大隔离级别，默认值为 ISOLATION_DEFAULT（使用数据库的设置），其他四个隔离级别和数据库的隔离级别一致：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>ISOLATION_DEFAULT：用底层数据库的设置隔离级别，数据库设置的是什么我就用什么；
+ISOLATIONREADUNCOMMITTED：未提交读，最低隔离级别、事务未提交前，就可被其他事务读取（会出现幻读、脏读、不可重复读）；
+ISOLATIONREADCOMMITTED：提交读，一个事务提交后才能被其他事务读取到（会造成幻读、不可重复读），SQL server 的默认级别；
+ISOLATIONREPEATABLEREAD：可重复读，保证多次读取同一个数据时，其值都和事务开始时候的内容是一致，禁止读取到别的事务未提交的数据（会造成幻读），MySQL 的默认级别；
+ISOLATION_SERIALIZABLE：序列化，代价最高最可靠的隔离级别，该隔离级别能防止脏读、不可重复读、幻读。
+
+「脏读」 ：表示一个事务能够读取另一个事务中还未提交的数据。比如，某个事务尝试插入记录 A，此时该事务还未提交，然后另一个事务尝试读取到了记录 A。
+「不可重复读」 ：是指在一个事务内，多次读同一数据。
+「幻读」 ：指同一个事务内多次查询返回的结果集不一样。比如同一个事务 A 第一次查询时候有 n 条记录，但是第二次同等条件下查询却有 n+1 条记录，这就好像产生了幻觉。发生幻读的原因也是另外一个事务新增或者删除或者修改了第一个事务结果集里面的数据，同一个记录的数据内容被修改了，所有数据行的记录就变多或者变少了。
+</code></pre>  </div></div> <h3 id="11-说一下-spring-mvc-运行流程"><strong>11. 说一下 spring mvc 运行流程？</strong></h3> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>spring mvc 先将请求发送给 DispatcherServlet。
+DispatcherServlet 查询一个或多个 HandlerMapping，找到处理请求的 Controller。
+DispatcherServlet 再把请求提交到对应的 Controller。
+Controller 进行业务逻辑处理后，会返回一个ModelAndView。
+Dispathcher 查询一个或多个 ViewResolver 视图解析器，找到 ModelAndView 对象指定的视图对象。
+视图对象负责渲染返回给客户端。
+</code></pre>  </div></div> <h3 id="12-spring-mvc-有哪些组件"><strong>12. spring mvc 有哪些组件？</strong></h3> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>前置控制器 DispatcherServlet。
+映射控制器 HandlerMapping。
+处理器 Controller。
+模型和视图 ModelAndView。
+视图解析器 ViewResolver。
+</code></pre>  </div></div> <h3 id="13-requestmapping-的作用是什么"><strong>13. <a href="https://github.com/RequestMapping" class="user-mention">@RequestMapping</a> 的作用是什么？</strong></h3> <p>将 http 请求映射到相应的类/方法上。</p> <h3 id="14-autowired-的作用是什么"><strong>14. <a href="https://github.com/Autowired" class="user-mention">@Autowired</a> 的作用是什么？</strong></h3> <p><a href="https://github.com/Autowired" class="user-mention">@Autowired</a> 它可以对类成员变量、方法及构造函数进行标注，完成自动装配的工作，通过<a href="https://github.com/Autowired" class="user-mention">@Autowired</a> 的使用来消除 set/get 方法。</p> <h2 id="二-spring-bootspring-cloud"><strong>二. Spring Boot/Spring Cloud</strong></h2> <h3 id="1-什么是-spring-boot"><strong>1. 什么是 spring boot？</strong></h3> <p>spring boot 是为 spring 服务的，是用来简化新 spring 应用的初始搭建以及开发过程的。</p> <h3 id="2-为什么要用-spring-boot"><strong>2. 为什么要用 spring boot？</strong></h3> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>配置简单
+独立运行
+自动装配
+无代码生成和 xml 配置
+提供应用监控
+易上手
+提升开发效率
+</code></pre>  </div></div> <h3 id="3-spring-boot-核心配置文件是什么"><strong>3. spring boot 核心配置文件是什么？</strong></h3> <p>spring boot 核心的两个配置文件：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>bootstrap (. yml 或者 . properties)：boostrap 由父 ApplicationContext 加载的，比 applicaton 优先加载，且 boostrap 里面的属性不能被覆盖；
+application (. yml 或者 . properties)：用于 spring boot 项目的自动化配置。
+</code></pre>  </div></div> <h3 id="4-spring-boot-配置文件有哪几种类型它们有什么区别"><strong>4. spring boot 配置文件有哪几种类型？它们有什么区别？</strong></h3> <p>配置文件有 . properties 格式和 . yml 格式，它们主要的区别是书法风格不同。</p> <p>. properties 配置如下：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>spring.RabbitMQ.port=5672
+</code></pre>  </div></div> <p>. yml 配置如下：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>spring:    
+	RabbitMQ:        
+		port: 5672
+</code></pre>  </div></div> <p>yml 格式不支持 <a href="https://github.com/PropertySource" class="user-mention">@PropertySource</a> 注解导入。</p> <h3 id="5-spring-boot-有哪些方式可以实现热部署"><strong>5. spring boot 有哪些方式可以实现热部署？</strong></h3> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>使用 devtools 启动热部署，添加 devtools 库，在配置文件中把 spring. devtools. restart. enabled 设置为 true；
+使用 Intellij Idea 编辑器，勾上自动编译或手动重新编译。
+</code></pre>  </div></div> <h3 id="6-什么是-spring-cloud"><strong>6. 什么是 spring cloud？</strong></h3> <p>spring cloud 是一系列框架的有序集合。它利用 spring boot 的开发便利性巧妙地简化了分布式系统基础设施的开发，如服务发现注册、配置中心、消息总线、负载均衡、断路器、数据监控等，都可以用 spring boot 的开发风格做到一键启动和部署。</p> <h3 id="7-spring-cloud-断路器的作用是什么"><strong>7. spring cloud 断路器的作用是什么？</strong></h3> <p>在分布式架构中，断路器模式的作用也是类似的，当某个服务单元发生故障（类似用电器发生短路）之后，通过断路器的故障监控（类似熔断保险丝），向调用方返回一个错误响应，而不是长时间的等待。这样就不会使得线程因调用故障服务被长时间占用不释放，避免了故障在分布式系统中的蔓延。</p> <h3 id="8-spring-cloud-的核心组件有哪些"><strong>8. spring cloud 的核心组件有哪些？</strong></h3> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>Eureka：服务注册于发现。
+Feign：基于动态代理机制，根据注解和选择的机器，拼接请求 url 地址，发起请求。
+Ribbon：实现负载均衡，从一个服务的多台机器中选择一台。
+Hystrix：提供线程池，不同的服务走不同的线程池，实现了不同服务调用的隔离，避免了服务雪崩的问题。
+Zuul：网关管理，由 Zuul 网关转发请求给对应的服务。
+</code></pre>  </div></div> <h2 id="三-hibernate"><strong>三. Hibernate</strong></h2> <h3 id="1-为什么要使用-hibernate"><strong>1. 为什么要使用 hibernate？</strong></h3> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>hibernate 是对 jdbc 的封装，大大简化了数据访问层的繁琐的重复性代码。
+hibernate 是一个优秀的 ORM 实现，很多程度上简化了 DAO 层的编码功能。
+可以很方便的进行数据库的移植工作。
+提供了缓存机制，是程序执行更改的高效。
+</code></pre>  </div></div> <h3 id="2-什么是-orm-框架"><strong>2. 什么是 ORM 框架？</strong></h3> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>ORM（Object Relation Mapping）对象关系映射，是把数据库中的关系数据映射成为程序中的对象。
+</code></pre>  </div></div> <p>使用 ORM 的优点：提高了开发效率降低了开发成本、开发更简单更对象化、可移植更强。</p> <h3 id="3-hibernate-中如何在控制台查看打印的-sql-语句"><strong>3. hibernate 中如何在控制台查看打印的 SQL 语句？</strong></h3> <p>在 Config 里面把 hibernate. show_SQL 设置为 true 就可以。但不建议开启，开启之后会降低程序的运行效率。</p> <h3 id="4-hibernate-有几种查询方式"><strong>4. hibernate 有几种查询方式？</strong></h3> <p>三种：hql、原生 SQL、条件查询 Criteria。</p> <h3 id="5-hibernate-实体类可以被定义为-final-吗"><strong>5. hibernate 实体类可以被定义为 final 吗？</strong></h3> <p>实体类可以定义为 final 类，但这样的话就不能使用 hibernate 代理模式下的延迟关联提供性能了，所以不建议定义实体类为 final。</p> <h3 id="6-在-hibernate-中使用-integer-和-int-做映射有什么区别"><strong>6. 在 hibernate 中使用 Integer 和 int 做映射有什么区别？</strong></h3> <p>Integer 类型为对象，它的值允许为 null，而 int 属于基础数据类型，值不能为 null。</p> <h3 id="7-hibernate-是如何工作的"><strong>7. hibernate 是如何工作的？</strong></h3> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>读取并解析配置文件。
+读取并解析映射文件，创建 SessionFactory。
+打开 Session。
+创建事务。
+进行持久化操作。
+提交事务。
+关闭 Session。
+关闭 SessionFactory。
+</code></pre>  </div></div> <h3 id="8-get和-load的区别"><strong>8. get()和 load()的区别？</strong></h3> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>数据查询时，没有 OID 指定的对象，get() 返回 null；load() 返回一个代理对象。
+load()支持延迟加载；get() 不支持延迟加载。
+</code></pre>  </div></div> <h3 id="9-说一下-hibernate-的缓存机制"><strong>9. 说一下 hibernate 的缓存机制？</strong></h3> <p>hibernate 常用的缓存有一级缓存和二级缓存：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>一级缓存：也叫 Session 缓存，只在 Session 作用范围内有效，不需要用户干涉，由 hibernate 自身维护，可以通过：evict(object)清除 object 的缓存；clear()清除一级缓存中的所有缓存；flush()刷出缓存；
+
+二级缓存：应用级别的缓存，在所有 Session 中都有效，支持配置第三方的缓存，如：EhCache。
+</code></pre>  </div></div> <h3 id="10-hibernate-对象有哪些状态"><strong>10. hibernate 对象有哪些状态？</strong></h3> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>临时/瞬时状态：直接 new 出来的对象，该对象还没被持久化（没保存在数据库中），不受 Session 管理。
+持久化状态：当调用 Session 的 save/saveOrupdate/get/load/list 等方法的时候，对象就是持久化状态。
+游离状态：Session 关闭之后对象就是游离状态。
+</code></pre>  </div></div> <h3 id="11-在-hibernate-中-getcurrentsession-和-opensession-的区别是什么"><strong>11. 在 hibernate 中 getCurrentSession 和 openSession 的区别是什么？</strong></h3> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>getCurrentSession 会绑定当前线程，而 openSession 则不会。
+getCurrentSession 事务是 Spring 控制的，并且不需要手动关闭，而 openSession 需要我们自己手动开启和提交事务。
+</code></pre>  </div></div> <h3 id="12-hibernate-实体类必须要有无参构造函数吗为什么"><strong>12. hibernate 实体类必须要有无参构造函数吗？为什么？</strong></h3> <p>hibernate 中每个实体类必须提供一个无参构造函数，因为 hibernate 框架要使用 reflection api，通过调用 ClassnewInstance() 来创建实体类的实例，如果没有无参的构造函数就会抛出异常。</p> <h3 id="13-jpa-和-hibernate-有什么区别"><strong>13. jpa 和 hibernate 有什么区别？</strong></h3> <p>jpa 全称 Java Persistence API，是 Java 持久化接口规范，hibernate 属于 jpa 的具体实现。</p> <h2 id="四-mybatis"><strong>四. MyBatis</strong></h2> <h3 id="1-mybatis-中-和-的区别是什么"><strong>1. MyBatis 中 #{}和 ${}的区别是什么？</strong></h3> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>`#{}`是预编译处理
+`${}`是字符替换。 在使用 `#{}`时，MyBatis 会将 SQL 中的 `#{}`替换成"?"，配合 PreparedStatement 的 set 方法赋值，这样可以有效的防止 SQL 注入，保证程序的运行安全。
+</code></pre>  </div></div> <h3 id="2-mybatis-有几种分页方式"><strong>2. MyBatis 有几种分页方式？</strong></h3> <p>分页方式：逻辑分页和物理分页。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>「逻辑分页：」** 使用 MyBatis 自带的 RowBounds 进行分页，它是一次性查询很多数据，然后在数据中再进行检索。
+
+「物理分页：」** 自己手写 SQL 分页或使用分页插件 PageHelper，去数据库查询指定条数的分页数据的形式。
+</code></pre>  </div></div> <h3 id="3-rowbounds-是一次性查询全部结果吗为什么"><strong>3. RowBounds 是一次性查询全部结果吗？为什么？</strong></h3> <p>RowBounds 表面是在"所有"数据中检索数据，其实并非是一次性查询出所有数据，因为 MyBatis 是对 jdbc 的封装，在 jdbc 驱动中有一个 Fetch Size 的配置，它规定了每次最多从数据库查询多少条数据，假如你要查询更多数据，它会在你执行 next()的时候，去查询更多的数据。就好比你去自动取款机取 10000 元，但取款机每次最多能取 2500 元，所以你要取 4 次才能把钱取完。只是对于 jdbc 来说，当你调用 next()的时候会自动帮你完成查询工作。这样做的好处可以有效的防止内存溢出。</p> <h3 id="4-mybatis-逻辑分页和物理分页的区别是什么"><strong>4. MyBatis 逻辑分页和物理分页的区别是什么？</strong></h3> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>逻辑分页是一次性查询很多数据，然后再在结果中检索分页的数据。这样做弊端是需要消耗大量的内存、有内存溢出的风险、对数据库压力较大。
+
+物理分页是从数据库查询指定条数的数据，弥补了一次性全部查出的所有数据的种种缺点，比如需要大量的内存，对数据库查询压力较大等问题。
+</code></pre>  </div></div> <h3 id="5-mybatis-是否支持延迟加载延迟加载的原理是什么"><strong>5. MyBatis 是否支持延迟加载？延迟加载的原理是什么？</strong></h3> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>MyBatis 支持延迟加载，设置 lazyLoadingEnabled=true 即可。
+</code></pre>  </div></div> <p>延迟加载的原理的是调用的时候触发加载，而不是在初始化的时候就加载信息。</p> <p>比如调用 a. getB(). getName()，这个时候发现 a. getB() 的值为 null，此时会单独触发事先保存好的关联 B 对象的 SQL，先查询出来 B，然后再调用 a. setB(b)，而这时候再调用 a. getB(). getName() 就有值了，这就是延迟加载的基本原理。</p> <h3 id="6-说一下-mybatis-的一级缓存和二级缓存"><strong>6. 说一下 MyBatis 的一级缓存和二级缓存？</strong></h3> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>一级缓存：基于 PerpetualCache 的 HashMap 本地缓存，它的声明周期是和 SQLSession 一致的，有多个 SQLSession 或者分布式的环境中数据库操作，可能会出现脏数据。当 Session flush 或 close 之后，该 Session 中的所有 Cache 就将清空，默认一级缓存是开启的。
+二级缓存：也是基于 PerpetualCache 的 HashMap 本地缓存，不同在于其存储作用域为 Mapper 级别的，如果多个SQLSession之间需要共享缓存，则需要使用到二级缓存，并且二级缓存可自定义存储源，如 Ehcache。默认不打开二级缓存，要开启二级缓存，使用二级缓存属性类需要实现 Serializable 序列化接口(可用来保存对象的状态)。
+</code></pre>  </div></div> <p>开启二级缓存数据查询流程：二级缓存 -&gt; 一级缓存 -&gt; 数据库。</p> <p>缓存更新机制：当某一个作用域(一级缓存 Session/二级缓存 Mapper)进行了C/U/D 操作后，默认该作用域下所有 select 中的缓存将被 clear。</p> <h3 id="7-mybatis-和-hibernate-的区别有哪些"><strong>7. MyBatis 和 hibernate 的区别有哪些？</strong></h3> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>灵活性：MyBatis 更加灵活，自己可以写 SQL 语句，使用起来比较方便。
+可移植性：MyBatis 有很多自己写的 SQL，因为每个数据库的 SQL 可以不相同，所以可移植性比较差。
+学习和使用门槛：MyBatis 入门比较简单，使用门槛也更低。
+二级缓存：hibernate 拥有更好的二级缓存，它的二级缓存可以自行更换为第三方的二级缓存。
+</code></pre>  </div></div> <h3 id="8-mybatis-有哪些执行器executor"><strong>8. MyBatis 有哪些执行器（Executor）？</strong></h3> <p>MyBatis 有三种基本的Executor执行器：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>SimpleExecutor：每执行一次 update 或 select 就开启一个 Statement 对象，用完立刻关闭 Statement 对象；
+ReuseExecutor：执行 update 或 select，以 SQL 作为 key 查找 Statement 对象，存在就使用，不存在就创建，用完后不关闭 Statement 对象，而是放置于 Map 内供下一次使用。简言之，就是重复使用 Statement 对象；
+BatchExecutor：执行 update（没有 select，jdbc 批处理不支持 select），将所有 SQL 都添加到批处理中（addBatch()），等待统一执行（executeBatch()），它缓存了多个 Statement 对象，每个 Statement 对象都是 addBatch()完毕后，等待逐一执行 executeBatch()批处理，与 jdbc 批处理相同。
+</code></pre>  </div></div> <h3 id="9-mybatis-分页插件的实现原理是什么"><strong>9. MyBatis 分页插件的实现原理是什么？</strong></h3> <p>分页插件的基本原理是使用 MyBatis 提供的插件接口，实现自定义插件，在插件的拦截方法内拦截待执行的 SQL，然后重写 SQL，根据 dialect 方言，添加对应的物理分页语句和物理分页参数。</p> <h3 id="10-mybatis-如何编写一个自定义插件"><strong>10. MyBatis 如何编写一个自定义插件？</strong></h3> <p><strong>「自定义插件实现原理」</strong></p> <p>MyBatis 自定义插件针对 MyBatis 四大对象（Executor、StatementHandler、ParameterHandler、ResultSetHandler）进行拦截：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>Executor：拦截内部执行器，它负责调用 StatementHandler 操作数据库，并把结果集通过 ResultSetHandler 进行自动映射，另外它还处理了二级缓存的操作；
+StatementHandler：拦截 SQL 语法构建的处理，它是 MyBatis 直接和数据库执行 SQL 脚本的对象，另外它也实现了 MyBatis 的一级缓存；
+
+ParameterHandler：拦截参数的处理；
+ResultSetHandler：拦截结果集的处理。
+</code></pre>  </div></div> <p><strong>「自定义插件实现关键」</strong></p> <p>MyBatis 插件要实现 Interceptor 接口，接口包含的方法，如下：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>public interfaceInterceptor{      
+	Object intercept(Invocation invocation) throws Throwable;
+	
+	Object plugin(Object target);
+	
+	voidsetProperties(Properties properties);
+}
+
+setProperties 方法是在 MyBatis 进行配置插件的时候可以配置自定义相关属性，即：接口实现对象的参数配置；
+plugin 方法是插件用于封装目标对象的，通过该方法我们可以返回目标对象本身，也可以返回一个它的代理，可以决定是否要进行拦截进而决定要返回一个什么样的目标对象，官方提供了示例：return Plugin. wrap(target, this)；
+intercept 方法就是要进行拦截的时候要执行的方法。
+</code></pre>  </div></div> <p><strong>「自定义插件实现示例」</strong></p> <p>官方插件实现：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>@Intercepts({@Signature(type = Executor.class, method= "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class})})
+public class TestInterceptor implements Interceptor{   
+	public Object intercept(Invocation invocation) throws Throwable {     
+		Object target = invocation.getTarget(); //被代理对象     
+		Method method = invocation.getMethod(); //代理方法     
+		Object[] args = invocation.getArgs(); //方法参数     
+		// do something . . . . . .  方法拦截前执行代码块     
+		Object result = invocation. proceed();     
+		// do something . . . . . . . 方法拦截后执行代码块     
+		return result;   
+	}  
+	public Object plugin(Object target){     
+		return Plugin. wrap(target, this);   
+	}
+}
+</code></pre>  </div></div> </div> <div class="markdown-content-footer"> <p>感谢各位的阅读，想要及时了解最新信息或建议，请关注公众号：<a href="https://mp.weixin.qq.com/s/i7Qw4I3glZXx-ctWJeMp_w">终南有客</a> 或邮箱：<a>justmyfreedom@outlook.com</a></p> </div> </div> <div class="navigation-bottom d-flex flex-justify-between py-3" role="navigation" aria-label="footer navigation"> <div class="prev"><a href="/blog/development/interview/java/2023-04-23_2.html" class="btn" title="Java面试宝典二(2023最新Java面试题)" accesskey="p" rel="prev"> <i class="fa fa-arrow-circle-left"></i> Previous </a></div> <div class="next"><a href="/blog/development/interview/java/2023-04-23_4.html" class="btn" title="Java面试宝典四(2023最新Java面试题)" accesskey="n" rel="next"> Next <i class="fa fa-arrow-circle-right"></i> </a></div> </div>
+<hr> <div class="copyright text-center text-gray" role="contentinfo"> <i class="fa fa-copyright"></i> <span class="time">2023,</span> <a class="text-gray" href="http://localhost:4000" rel="noreferrer" target="_blank"> 终南有客 </a> Revision <a class="text-gray" href="http://localhost:4000/commit/1.0.0" title="1.0.0" rel="noreferrer" target="_blank"> 1.0.0 </a> <br> <div class="generator"> © JustMyFreedom 2023, created by 终南有客. </div> </div> </div> </div> <div class="addons-wrap d-flex flex-column overflow-y-auto"> <div class="status d-flex flex-justify-between p-2"> <div class="title p-1"> <i class="fa fa-book"></i> JustMyFreedom </div> <div class="branch p-1"> <span class="name"> </span> <i class="fa fa-caret-down"></i> </div> </div> <div class="addons d-flex flex-column height-full p-2 d-none"> <dl> <dt>JustMyFreedom</dt> <dd> <a href="http://localhost:4000" title="Homepage"> <i class="fa fa-android"></i> Homepage </a> </dd> <dd> <a href="http://localhost:4000" title="Issues"> <i class="fa fa-question-circle-o"></i> Issues </a> </dd> <dd> <a href="http://localhost:4000" title="Size Kb"> <i class="fa fa-download"></i> Download </a> </dd> </dl> <hr> <div class="license f6 pb-2"> This <a href="http://localhost:4000/" title="JustMyFreedom">website</a> was created by <a href="">终南有客</a>. </div> </div> </div> <script src="/static/assets/js/jquery.min.js"></script><script src="/static/assets/js/theme.min.js"></script> </body> </html>
