@@ -22,6 +22,9 @@ plugins:
   - jekyll-mentions
 
 # include：指定 Jekyll 处理的文件或目录
+# include:
+#   - /blog
+
 
 # 指定 Jekyll 忽略的文件或目录
 exclude:
