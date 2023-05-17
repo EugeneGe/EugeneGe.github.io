@@ -1,0 +1,414 @@
+<!DOCTYPE html> <html lang="en" dir="auto"> <head><meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=no"> <meta name="description" content="Linux命令大全(Linux常用命令进阶) 这篇是基于上篇的进阶版 一. 文本操作 1. grep 全局搜索一个正则表达式，并且打印到屏幕。简单来说就是，在文件中查找关键字，并显示关键字所在行。 基础语法 grep text file # text代表要搜索的文本，file代表供搜索的文件 ..."> <meta name="revised" content="c431d75994d181f833327a4cff8bd26aeea1b648"> <meta name="author" content="EugeneGe"> <meta name="generator" content="static vstatic"><meta name="theme-color" content="#2980b9"> <title>Linux命令大全(Linux常用命令进阶) · JustMyFreedom</title> <meta name="twitter:title" content="Linux命令大全(Linux常用命令进阶) · JustMyFreedom"> <meta name="twitter:description" content="Linux命令大全(Linux常用命令进阶) 这篇是基于上篇的进阶版 一. 文本操作 1. grep 全局搜索一个正则表达式，并且打印到屏幕。简单来说就是，在文件中查找关键字，并显示关键字所在行。 基础语法 grep text file # text代表要搜索的文本，file代表供搜索的文件 ..."> <meta name="twitter:card" content="summary"> <meta name="twitter:site" content="@EugeneGe"> <meta name="twitter:url" content="http://localhost:4000/blog/development/os/linux/2023-05-17_3.html"> <meta name="twitter:creator" content="@static vstatic"> <meta property="og:title" content="Linux命令大全(Linux常用命令进阶) · JustMyFreedom"> <meta property="og:description" content="Linux命令大全(Linux常用命令进阶) 这篇是基于上篇的进阶版 一. 文本操作 1. grep 全局搜索一个正则表达式，并且打印到屏幕。简单来说就是，在文件中查找关键字，并显示关键字所在行。 基础语法 grep text file # text代表要搜索的文本，file代表供搜索的文件 ..."> <meta property="og:locale" content="en"> <meta property="og:url" content="http://localhost:4000/blog/development/os/linux/2023-05-17_3.html"> <meta property="og:type" content="article"> <meta property="article:author" content="EugeneGe"> <meta property="article:published_time" content="2023-04-17T13:57:15+08:00"> <meta property="article:modified_time" content="2023-05-17T11:26:18+08:00"> <script type="application/ld+json"> { "@context": "https://schema.org", "@type": "Article", "mainEntityOfPage": { "@type": "WebPage", "@id": "http://localhost:4000/blog/development/os/linux/2023-05-17_3.html" }, "headline": "Linux命令大全(Linux常用命令进阶) · JustMyFreedom", "image": [], "author": { "@type": "Person", "name": "EugeneGe" }, "datePublished": "2023-04-17T13:57:15+08:00", "dateModified": "2023-05-17T11:26:18+08:00", "publisher": { "@type": "User", "name": "EugeneGe", "logo": { "@type": "ImageObject", "url": "https://avatars.githubusercontent.com/u/46210586?v=4" } }, "description": "Linux命令大全(Linux常用命令进阶) 这篇是基于上篇的进阶版 一. 文本操作 1. grep 全局搜索一个正则表达式，并且打印到屏幕。简单来说就是，在文件中查找关键字，并显示关键字所在行。 基础语法 grep text file # text代表要搜索的文本，file代表供搜索的文件 ..." } </script> <link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="prev" href="http://localhost:4000/blog/development/os/linux/2023-05-17_2.html"><link rel="next" href="http://localhost:4000/blog/development/os/linux/2023-04-23_1.html"><link rel="canonical" href="http://localhost:4000/blog/development/os/linux/2023-05-17_3.html"><link rel="icon" type="image/png" href="https://image.justmyfreedom.com//static/assets/ico/favicon-16x16.png"><link rel="icon" type="image/png" href="https://image.justmyfreedom.com//static/assets/ico/favicon-16x16.png" sizes="16x16"> <link rel="icon" type="image/png" href="https://image.justmyfreedom.com//static/assets/ico/favicon-32x32.png" sizes="32x32"> <link rel="icon" type="image/png" href="https://image.justmyfreedom.com//static/assets/ico/favicon-96x96.png" sizes="96x96"><link rel="mask-icon" href="/static/assets/images/favicon.svg" color="#2980b9"><link rel="apple-touch-icon" href="/static/assets/images/apple-touch-icon-300x300.jpg"> <link rel="stylesheet" href="/static/assets/css/theme.min.css"><script> window.ui = { title: "JustMyFreedom", baseurl: "", i18n: { search_results: "Search Results", search_results_found: "Search finished, found # page(s) matching the search query.", search_results_not_found: "Your search did not match any documents, please make sure that all characters are spelled correctly!" } }; </script> </head> <body class="container"><div class="sidebar-wrap overflow-hidden"> <div class="sidebar height-full overflow-y-scroll overflow-x-hidden"> <div class="header d-flex flex-column p-3 text-center"> <div class="title pb-1"> <a class="h4 no-underline py-1 px-2 rounded-1" href="/" title="成功只有一种，那就是按照自己喜欢的方式过完一生。" target="_blank"> <i class="fa fa-home"></i> JustMyFreedom </a> </div> <span class="version">1.0.0</span> <form class="search pt-2" action="/search.html" method="get" autocomplete="off"> <input class="form-control input-block input-sm" type="text" name="q" placeholder="search"> </form> </div> <div class="toctree py-2" data-spy="affix" role="navigation" aria-label="main navigation"> <ul> </ul> <a class="caption d-block text-uppercase no-wrap px-2 py-0" href="/blog/"> JustMyFreedom </a><ul> <li class="toc level-1"> <a class="d-flex flex-items-baseline" href="/blog/frontier/" title="前沿"> 前沿 </a><ul> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/frontier/recommend/" title="推荐"> 推荐 </a><ul> <li class="toc level-3 " data-sort="1" data-level="3"> <a class="d-flex flex-items-baseline " href="/blog/frontier/recommend/2023-04-23_1.html" title="Just My Socks 介绍，Just My Socks 是什么？">1. Just My Socks 介绍，Just My Socks 是什么？</a> </li> <li class="toc level-3 " data-sort="2" data-level="3"> <a class="d-flex flex-items-baseline " href="/blog/frontier/recommend/2023-04-27_1.html" title="推荐几款好用的自用软件">2. 推荐几款好用的自用软件</a> </li>
+</ul> </li> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/frontier/new/" title="新闻"> 新闻 </a><ul> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/frontier/new/technology/" title="科技"> 科技 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/frontier/new/technology/2023-04-23_1.html" title="ChatGpt">1. ChatGpt</a> </li>
+</ul> </li> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/frontier/new/life/" title="生活"> 生活 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/frontier/new/life/2023-04-23_1.html" title="2023年计划考试时间(全年)">1. 2023年计划考试时间(全年)</a> </li>
+</ul> </li>
+</ul> </li>
+</ul> </li> <li class="toc level-1"> <a class="d-flex flex-items-baseline" href="/blog/development/" title="开发技术"> 开发技术 </a><ul> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/development/interview/" title="面试宝典"> 面试宝典 </a><ul> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/interview/java/" title="Java面试题"> Java面试题 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/interview/java/2023-04-23_1.html" title="Java面试宝典一(2023最新Java面试题)">1. Java面试宝典一(2023最新Java面试题)</a> </li> <li class="toc level-4 " data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/interview/java/2023-04-23_2.html" title="Java面试宝典二(2023最新Java面试题)">2. Java面试宝典二(2023最新Java面试题)</a> </li> <li class="toc level-4 " data-sort="3" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/interview/java/2023-04-23_3.html" title="Java面试宝典三(2023最新Java面试题)">3. Java面试宝典三(2023最新Java面试题)</a> </li> <li class="toc level-4 " data-sort="4" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/interview/java/2023-04-23_4.html" title="Java面试宝典四(2023最新Java面试题)">4. Java面试宝典四(2023最新Java面试题)</a> </li>
+</ul> </li>
+</ul> </li> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/development/html/" title="前端笔记"> 前端笔记 </a><ul> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/html/jottings/" title="随笔"> 随笔 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/html/jottings/2023-04-21_1.html" title="html页面如何设置适配移动端">1. html页面如何设置适配移动端</a> </li> <li class="toc level-4 " data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/html/jottings/2023-04-27_1.html" title="HTML页面中返回顶部的几种实现">2. HTML页面中返回顶部的几种实现</a> </li> <li class="toc level-4 " data-sort="3" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/html/jottings/2023-05-12_1.html" title="html表格导出excel有几种方式">3. html表格导出excel有几种方式</a> </li> <li class="toc level-4 " data-sort="4" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/html/jottings/2023-05-12_2.html" title="laydate渲染日期">4. laydate渲染日期</a> </li> <li class="toc level-4 " data-sort="5" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/html/jottings/2023-05-17_1.html" title="Html中CSS和JavaScript 文件添加版本号有哪些方式">5. Html中CSS和JavaScript 文件添加版本号有哪些方式</a> </li>
+</ul> </li> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/html/seo/" title="SEO优化"> SEO优化 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/html/seo/2023-04-27_1.html" title="NGINX强制使用https访问(http跳转到https)">1. NGINX强制使用https访问(http跳转到https)</a> </li> <li class="toc level-4 " data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/html/seo/2023-04-27_2.html" title="最新主流搜索引擎提交sitemap大全（网站地图）">2. 最新主流搜索引擎提交sitemap大全（网站地图）</a> </li> <li class="toc level-4 " data-sort="3" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/html/seo/2023-04-27_3.html" title="SEO实操小技巧关键字">3. SEO实操小技巧关键字</a> </li>
+</ul> </li> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/html/webdesign/" title="Jekyll网站开发"> Jekyll网站开发 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/html/webdesign/2023-04-24_1.html" title="Jekyll安装配置和使用">1. Jekyll安装配置和使用</a> </li> <li class="toc level-4 " data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/html/webdesign/2023-04-24_2.html" title="七牛云对象存储(图床)免费使用">2. 七牛云对象存储(图床)免费使用</a> </li> <li class="toc level-4 " data-sort="3" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/html/webdesign/2023-05-12_1.html" title="免费的Jekyll静态网站发布平台">3. 免费的Jekyll静态网站发布平台</a> </li>
+</ul> </li>
+</ul> </li> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/development/java/" title="Java笔记"> Java笔记 </a><ul> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/java/jottings/" title="随笔"> 随笔 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/java/jottings/2023-04-23_1.html" title="Java学习大纲路径">1. Java学习大纲路径</a> </li> <li class="toc level-4 " data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/java/jottings/2023-04-27_1.html" title="Spring中的事务回滚机制">2. Spring中的事务回滚机制</a> </li> <li class="toc level-4 " data-sort="3" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/java/jottings/2023-04-27_2.html" title="Java开发环境安装配置JDK+Maven+Tomcat">3. Java开发环境安装配置JDK+Maven+Tomcat</a> </li> <li class="toc level-4 " data-sort="4" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/java/jottings/2023-05-12_1.html" title="Restful风格开发方式">4. Restful风格开发方式</a> </li>
+</ul> </li> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/java/basics/" title="Java基础"> Java基础 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/java/basics/2023-04-24_1.html" title="Java中map常见操作集合">1. Java中map常见操作集合</a> </li> <li class="toc level-4 " data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/java/basics/2023-04-24_2.html" title="Java中Json转换的常见操作方式">2. Java中Json转换的常见操作方式</a> </li> <li class="toc level-4 " data-sort="3" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/java/basics/2023-04-24_3.html" title="Java中计算List求和或List对象中某个字段的总和">3. Java中计算List求和或List对象中某个字段的总和</a> </li> <li class="toc level-4 " data-sort="3" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/java/basics/2023-04-27_1.html" title="Java中BigDecimal类型详解">3. Java中BigDecimal类型详解</a> </li>
+</ul> </li> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/java/tool/" title="工具包"> 工具包 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/java/tool/2023-05-12_1.html" title="EASYEXCEL使用详解">1. EASYEXCEL使用详解</a> </li>
+</ul> </li>
+</ul> </li> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/development/python/" title="Python笔记"> Python笔记 </a><ul> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/python/django/" title="Django"> Django </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/python/django/2023-04-27_1.html" title="Django中url与path及re_path区别">1. Django中url与path及re_path区别</a> </li>
+</ul> </li> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/python/jottings/" title="随笔"> 随笔 </a><ul> </ul> </li>
+</ul> </li> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/development/os/" title="操作系统"> 操作系统 </a><ul> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/os/linux/" title="linux"> linux </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/os/linux/2023-05-17_2.html" title="Linux命令大全(Linux常用命令基础)">1. Linux命令大全(Linux常用命令基础)</a> </li> <li class="toc level-4 current" data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline current" href="/blog/development/os/linux/2023-05-17_3.html" title="Linux命令大全(Linux常用命令进阶)">2. Linux命令大全(Linux常用命令进阶)</a> </li> <li class="toc level-4 " data-sort="3" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/os/linux/2023-04-23_1.html" title="Linux的上传和下载功能">3. Linux的上传和下载功能</a> </li> <li class="toc level-4 " data-sort="4" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/os/linux/2023-05-17_1.html" title="Centos防火墙配置">4. Centos防火墙配置</a> </li>
+</ul> </li> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/os/windows/" title="windows"> windows </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/os/windows/2023-04-27_1.html" title="Windows端口常见问题解决">1. Windows端口常见问题解决</a> </li> <li class="toc level-4 " data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/os/windows/2023-05-17_1.html" title="Windows常用小技巧">2. Windows常用小技巧</a> </li>
+</ul> </li>
+</ul> </li> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/development/tool/" title="工具"> 工具 </a><ul> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/tool/redis/" title="Redis"> Redis </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/tool/redis/2023-04-30_1.html" title="Windows部署redis集群模式">1. Windows部署redis集群模式</a> </li> <li class="toc level-4 " data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/tool/redis/2023-04-30_2.html" title="redis如何设置密码">2. redis如何设置密码</a> </li>
+</ul> </li> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/tool/git/" title="Git"> Git </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/tool/git/2023-04-27_1.html" title="最新Github创建仓库,将项目上传到GitHub">1. 最新Github创建仓库,将项目上传到GitHub</a> </li> <li class="toc level-4 " data-sort="2" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/tool/git/2023-04-28_1.html" title="Git一份代码同时提交两个Git仓库">2. Git一份代码同时提交两个Git仓库</a> </li> <li class="toc level-4 " data-sort="3" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/tool/git/2023-05-12_1.html" title="Git常用操作命令">3. Git常用操作命令</a> </li>
+</ul> </li> <li class="toc level-3"> <a class="d-flex flex-items-baseline" href="/blog/development/tool/maven/" title="Java基础"> Java基础 </a><ul> <li class="toc level-4 " data-sort="1" data-level="4"> <a class="d-flex flex-items-baseline " href="/blog/development/tool/maven/2023-04-27_1.html" title="Maven推送本地jar包到仓库">1. Maven推送本地jar包到仓库</a> </li>
+</ul> </li>
+</ul> </li>
+</ul> </li> <li class="toc level-1"> <a class="d-flex flex-items-baseline" href="/blog/life/" title="生活"> 生活 </a><ul> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/life/travel/" title="趣事小记"> 趣事小记 </a><ul> </ul> </li> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/life/poetry/" title="诗词鉴赏"> 诗词鉴赏 </a><ul> </ul> </li>
+</ul> </li> <li class="toc level-1"> <a class="d-flex flex-items-baseline" href="/blog/about/" title="关于"> 关于 </a><ul> <li class="toc level-2"> <a class="d-flex flex-items-baseline" href="/blog/about/website/" title="网站"> 网站 </a><ul> <li class="toc level-3 " data-sort="1" data-level="3"> <a class="d-flex flex-items-baseline " href="/blog/about/website/2023-04-23_1.html" title="关于Justmyfreedom网站">1. 关于Justmyfreedom网站</a> </li>
+</ul> </li>
+</ul> </li>
+</ul> </div> </div> </div> <div class="content-wrap"> <div class="header d-flex flex-justify-between p-2 hide-lg hide-xl" aria-label="top navigation"> <button id="toggle" aria-label="Toggle menu" class="btn-octicon p-2 m-0 text-white" type="button"> <i class="fa fa-bars"></i> </button> <div class="title flex-1 d-flex flex-justify-center"> <a class="h4 no-underline py-1 px-2 rounded-1" href="/">JustMyFreedom</a> </div> </div> <div class="content p-3 p-sm-5"> <div class="navigation-top d-flex flex-justify-between"> <ul class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation"> <li class="breadcrumb-item"> <a class="no-underline" href="/" title="成功只有一种，那就是按照自己喜欢的方式过完一生。"> <i class="fa fa-home"></i> </a> </li>
+<li class="breadcrumb-item"><a href="/blog/">blog</a></li>
+<li class="breadcrumb-item"><a href="/blog/development/">development</a></li>
+<li class="breadcrumb-item"><a href="/blog/development/os/">os</a></li>
+<li class="breadcrumb-item"><a href="/blog/development/os/linux/">linux</a></li>
+<li class="breadcrumb-item" aria-current="page">Linux命令大全(Linux常用命令进阶)</li>
+</ul> </div> <hr> <div role="main" itemscope="itemscope" itemtype="https://schema.org/Article"> <div class="markdown-body" itemprop="articleBody"> <h1 id="linux命令大全linux常用命令进阶">Linux命令大全(Linux常用命令进阶)</h1> <p>这篇是基于上篇的进阶版</p> <h2 id="一-文本操作">一. 文本操作</h2> <h3 id="1-grep">1. grep</h3> <p>全局搜索一个正则表达式，并且打印到屏幕。简单来说就是，在文件中查找关键字，并显示关键字所在行。</p> <h4 id="基础语法">基础语法</h4> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>grep text file # text代表要搜索的文本，file代表供搜索的文件
+ 
+# 实例
+[root@lion ~]# grep path /etc/profile
+pathmunge () {
+    pathmunge /usr/sbin
+    pathmunge /usr/local/sbin
+    pathmunge /usr/local/sbin after
+    pathmunge /usr/sbin after
+unset -f pathmunge
+</code></pre>  </div></div> <h4 id="常用参数">常用参数</h4> <ul> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-i</code> 忽略大小写， <code class="language-plaintext highlighter-rouge notranslate">grep -i path /etc/profile</code>
+</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-n</code> 显示行号，<code class="language-plaintext highlighter-rouge notranslate">grep -n path /etc/profile</code>
+</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-v</code> 只显示搜索文本不在的那些行，<code class="language-plaintext highlighter-rouge notranslate">grep -v path /etc/profile</code>
+</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-r</code> 递归查找， <code class="language-plaintext highlighter-rouge notranslate">grep -r hello /etc</code> ，Linux 中还有一个 rgrep 命令，作用相当于 <code class="language-plaintext highlighter-rouge notranslate">grep -r</code>
+</li> </ul> <h4 id="高级用法">高级用法</h4> <p><code class="language-plaintext highlighter-rouge notranslate">grep</code> 可以配合正则表达式使用。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>grep -E path /etc/profile --&gt; 完全匹配path
+grep -E ^path /etc/profile --&gt; 匹配path开头的字符串
+grep -E [Pp]ath /etc/profile --&gt; 匹配path或Path
+</code></pre>  </div></div> <h3 id="2-sort">2. sort</h3> <p>对文件的行进行排序。</p> <h4 id="基础语法-1">基础语法</h4> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>sort name.txt # 对name.txt文件进行排序
+</code></pre>  </div></div> <h4 id="实例用法">实例用法</h4> <p>为了演示方便，我们首先创建一个文件 <code class="language-plaintext highlighter-rouge notranslate">name.txt</code> ，放入以下内容：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>Christopher
+Shawn
+Ted
+Rock
+Noah
+Zachary
+Bella
+</code></pre>  </div></div> <p>执行 <code class="language-plaintext highlighter-rouge notranslate">sort name.txt</code> 命令，会对文本内容进行排序。</p> <h4 id="常用参数-1">常用参数</h4> <ul> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-o</code> 将排序后的文件写入新文件， <code class="language-plaintext highlighter-rouge notranslate">sort -o name_sorted.txt name.txt</code> ；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-r</code> 倒序排序， <code class="language-plaintext highlighter-rouge notranslate">sort -r name.txt</code> ；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-R</code> 随机排序， <code class="language-plaintext highlighter-rouge notranslate">sort -R name.txt</code> ；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-n</code> 对数字进行排序，默认是把数字识别成字符串的，因此 138 会排在 25 前面，如果添加了 <code class="language-plaintext highlighter-rouge notranslate">-n</code> 数字排序的话，则 25 会在 138 前面。</li> </ul> <h3 id="3-wc">3. wc</h3> <p><code class="language-plaintext highlighter-rouge notranslate">word count</code> 的缩写，用于文件的统计。它可以统计单词数目、行数、字符数，字节数等。</p> <h4 id="基础语法-2">基础语法</h4> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>wc name.txt # 统计name.txt
+</code></pre>  </div></div> <h4 id="实例用法-1">实例用法</h4> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>[root@lion ~]# wc name.txt 
+13 13 91 name.txt
+</code></pre>  </div></div> <ul> <li>第一个13，表示行数；</li> <li>第二个13，表示单词数；</li> <li>第三个91，表示字节数。</li> </ul> <h4 id="常用参数-2">常用参数</h4> <ul> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-l</code> 只统计行数， <code class="language-plaintext highlighter-rouge notranslate">wc -l name.txt</code> ；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-w</code> 只统计单词数， <code class="language-plaintext highlighter-rouge notranslate">wc -w name.txt</code> ；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-c</code> 只统计字节数， <code class="language-plaintext highlighter-rouge notranslate">wc -c name.txt</code> ；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-m</code> 只统计字符数， <code class="language-plaintext highlighter-rouge notranslate">wc -m name.txt</code> 。</li> </ul> <h3 id="4-uniq">4. uniq</h3> <p>删除文件中的重复内容。</p> <h4 id="基础语法-3">基础语法</h4> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>uniq name.txt # 去除name.txt重复的行数，并打印到屏幕上
+uniq name.txt uniq_name.txt # 把去除重复后的文件保存为 uniq_name.txt
+</code></pre>  </div></div> <p>【注意】它只能去除连续重复的行数。</p> <h4 id="常用参数-3">常用参数</h4> <ul> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-c</code> 统计重复行数， <code class="language-plaintext highlighter-rouge notranslate">uniq -c name.txt</code> ；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-d</code> 只显示重复的行数， <code class="language-plaintext highlighter-rouge notranslate">uniq -d name.txt</code> 。</li> </ul> <h3 id="5-cut">5. cut</h3> <p>剪切文件的一部分内容。</p> <h4 id="基础语法-4">基础语法</h4> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>cut -c 2-4 name.txt # 剪切每一行第二到第四个字符
+</code></pre>  </div></div> <h4 id="常用参数-4">常用参数</h4> <ul> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-d</code> 用于指定用什么分隔符（比如逗号、分号、双引号等等） <code class="language-plaintext highlighter-rouge notranslate">cut -d , name.txt</code> ；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-f</code> 表示剪切下用分隔符分割的哪一块或哪几块区域， <code class="language-plaintext highlighter-rouge notranslate">cut -d , -f 1 name.txt</code> 。</li> </ul> <h2 id="二-重定向-管道-流">二. 重定向 管道 流</h2> <p>在 <code class="language-plaintext highlighter-rouge notranslate">Linux</code> 中一个命令的去向可以有3个地方：终端、文件、作为另外一个命令的入参。</p> <p><img src="https://image.justmyfreedom.com//static/assets/blog_img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230517104932min.png" alt="justmyfreedom图片"></p> <p>命令一般都是通过键盘输入，然后输出到终端、文件等地方，它的标准用语是 <code class="language-plaintext highlighter-rouge notranslate">stdin</code> 、 <code class="language-plaintext highlighter-rouge notranslate">stdout</code> 以及 <code class="language-plaintext highlighter-rouge notranslate">stderr</code> 。</p> <ul> <li>标准输入 <code class="language-plaintext highlighter-rouge notranslate">stdin</code> ，终端接收键盘输入的命令，会产生两种输出；</li> <li>标准输出 <code class="language-plaintext highlighter-rouge notranslate">stdout</code> ，终端输出的信息（不包含错误信息）；</li> <li>标准错误输出 <code class="language-plaintext highlighter-rouge notranslate">stderr</code> ，终端输出的错误信息。</li> </ul> <p><img src="https://image.justmyfreedom.com//static/assets/blog_img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230517105138min.png" alt="justmyfreedom图片"></p> <h3 id="1-重定向">1. 重定向</h3> <p>把本来要显示在终端的命令结果，输送到别的地方（到文件中或者作为其他命令的输入）。</p> <h4 id="输出重定向-">输出重定向 <code class="language-plaintext highlighter-rouge notranslate">&gt;</code>
+</h4> <p><code class="language-plaintext highlighter-rouge notranslate">&gt;</code> 表示重定向到新的文件， <code class="language-plaintext highlighter-rouge notranslate">cut -d , -f 1 notes.csv &gt; name.csv</code> ，它表示通过逗号剪切 <code class="language-plaintext highlighter-rouge notranslate">notes.csv</code> 文件（剪切完有3个部分）获取第一个部分，重定向到 <code class="language-plaintext highlighter-rouge notranslate">name.csv</code> 文件。</p> <p>我们来看一个具体示例，学习它的使用，假设我们有一个文件 <code class="language-plaintext highlighter-rouge notranslate">notes.csv</code> ，文件内容如下：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>Mark1,951/100,很不错1
+Mark2,952/100,很不错2
+Mark3,953/100,很不错3
+Mark4,954/100,很不错4
+Mark5,955/100,很不错5
+Mark6,956/100,很不错6
+</code></pre>  </div></div> <p>执行命令： <code class="language-plaintext highlighter-rouge notranslate">cut -d , -f 1 notes.csv &gt; name.csv</code> 最后输出如下内容：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>Mark1
+Mark2
+Mark3
+Mark4
+Mark5
+Mark6
+</code></pre>  </div></div> <p>【注意】使用 <code class="language-plaintext highlighter-rouge notranslate">&gt;</code> 要注意，如果输出的文件不存在它会新建一个，如果输出的文件已经存在，则会覆盖。因此执行这个操作要非常小心，以免覆盖其它重要文件。</p> <h4 id="输出重定向--1">输出重定向 <code class="language-plaintext highlighter-rouge notranslate">&gt;&gt;</code>
+</h4> <p>表示重定向到文件末尾，因此它不会像 <code class="language-plaintext highlighter-rouge notranslate">&gt;</code> 命令这么危险，它是追加到文件的末尾（当然如果文件不存在，也会被创建）。</p> <p>再次执行 <code class="language-plaintext highlighter-rouge notranslate">cut -d , -f 1 notes.csv &gt;&gt; name.csv</code> ，则会把名字追加到 <code class="language-plaintext highlighter-rouge notranslate">name.csv</code> 里面。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>Mark1
+Mark2
+Mark3
+Mark4
+Mark5
+Mark6
+Mark1
+Mark2
+Mark3
+Mark4
+Mark5
+Mark6
+</code></pre>  </div></div> <p>我们平时读的 <code class="language-plaintext highlighter-rouge notranslate">log</code> 日志文件其实都是用这个命令输出的。</p> <h4 id="输出重定向-2">输出重定向 <code class="language-plaintext highlighter-rouge notranslate">2&gt;</code>
+</h4> <p>标准错误输出</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>cat not_exist_file.csv &gt; res.txt 2&gt; errors.log
+</code></pre>  </div></div> <ul> <li>当我们 <code class="language-plaintext highlighter-rouge notranslate">cat</code> 一个文件时，会把文件内容打印到屏幕上，这个是标准输出；</li> <li>当使用了 <code class="language-plaintext highlighter-rouge notranslate">&gt; res.txt</code> 时，则不会打印到屏幕，会把标准输出写入文件 <code class="language-plaintext highlighter-rouge notranslate">res.txt</code> 文件中；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">2&gt; errors.log</code> 当发生错误时会写入 <code class="language-plaintext highlighter-rouge notranslate">errors.log</code> 文件中。</li> </ul> <h4 id="输出重定向-2-1">输出重定向 <code class="language-plaintext highlighter-rouge notranslate">2&gt;&gt;</code>
+</h4> <p>标准错误输出（追加到文件末尾）同 <code class="language-plaintext highlighter-rouge notranslate">&gt;&gt;</code> 相似。</p> <h4 id="输出重定向-21">输出重定向 <code class="language-plaintext highlighter-rouge notranslate">2&gt;&amp;1</code>
+</h4> <p>标准输出和标准错误输出都重定向都一个地方</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>cat not_exist_file.csv &gt; res.txt 2&gt;&amp;1  # 覆盖输出
+cat not_exist_file.csv &gt;&gt; res.txt 2&gt;&amp;1 # 追加输出
+</code></pre>  </div></div> <p>目前为止，我们接触的命令的输入都来自命令的参数，其实命令的输入还可以来自文件或者键盘的输入。</p> <p><img src="https://image.justmyfreedom.com//static/assets/blog_img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230517105321min.png" alt="justmyfreedom图片"></p> <h4 id="输入重定向-">输入重定向 <code class="language-plaintext highlighter-rouge notranslate">&lt;</code>
+</h4> <p><code class="language-plaintext highlighter-rouge notranslate">&lt;</code> 符号用于指定命令的输入。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>cat &lt; name.csv # 指定命令的输入为 name.csv
+</code></pre>  </div></div> <p>虽然它的运行结果与 <code class="language-plaintext highlighter-rouge notranslate">cat name.csv</code> 一样，但是它们的原理却完全不同。</p> <ul> <li>
+<code class="language-plaintext highlighter-rouge notranslate">cat name.csv</code> 表示 <code class="language-plaintext highlighter-rouge notranslate">cat</code> 命令接收的输入是 <code class="language-plaintext highlighter-rouge notranslate">notes.csv</code> 文件名，那么要先打开这个文件，然后打印出文件内容。</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">cat &lt; name.csv</code> 表示 <code class="language-plaintext highlighter-rouge notranslate">cat</code> 命令接收的输入直接是 <code class="language-plaintext highlighter-rouge notranslate">notes.csv</code> 这个文件的内容， <code class="language-plaintext highlighter-rouge notranslate">cat</code> 命令只负责将其内容打印，打开文件并将文件内容传递给 <code class="language-plaintext highlighter-rouge notranslate">cat</code> 命令的工作则交给终端完成。</li> </ul> <h4 id="输入重定向--1">输入重定向 <code class="language-plaintext highlighter-rouge notranslate">&lt;&lt;</code>
+</h4> <p>将键盘的输入重定向为某个命令的输入。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>sort -n &lt;&lt; END # 输入这个命令之后，按下回车，终端就进入键盘输入模式，其中END为结束命令（这个可以自定义）
+wc -m &lt;&lt; END # 统计输入的单词
+</code></pre>  </div></div> <h3 id="2-管道-">2. 管道 <code class="language-plaintext highlighter-rouge notranslate">|</code>
+</h3> <p>把两个命令连起来使用，一个命令的输出作为另外一个命令的输入，英文是 <code class="language-plaintext highlighter-rouge notranslate">pipeline</code> ，可以想象一个个水管连接起来，管道算是重定向流的一种。</p> <p><img src="https://image.justmyfreedom.com//static/assets/blog_img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230517105425min.png" alt="justmyfreedom图片"></p> <p>举几个实际用法案例：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>cut -d , -f 1 name.csv | sort &gt; sorted_name.txt 
+# 第一步获取到的 name 列表，通过管道符再进行排序，最后输出到sorted_name.txt
+ 
+du | sort -nr | head 
+# du 表示列举目录大小信息
+# sort 进行排序,-n 表示按数字排序，-r 表示倒序
+# head 前10行文件
+ 
+grep log -Ir /var/log | cut -d : -f 1 | sort | uniq
+# grep log -Ir /var/log 表示在log文件夹下搜索 /var/log 文本，-r 表示递归，-I 用于排除二进制文件
+# cut -d : -f 1 表示通过冒号进行剪切，获取剪切的第一部分
+# sort 进行排序
+# uniq 进行去重
+</code></pre>  </div></div> <h3 id="3-流">3. 流</h3> <p>流并非一个命令，在计算机科学中，流 <code class="language-plaintext highlighter-rouge notranslate">stream</code> 的含义是比较难理解的，记住一点即可：<strong>「流就是读一点数据, 处理一点点数据。其中数据一般就是二进制格式。」</strong> 上面提及的重定向或管道，就是把数据当做流去运转的。</p> <p>到此我们就接触了，流、重定向、管道等 <code class="language-plaintext highlighter-rouge notranslate">Linux</code> 高级概念及指令。其实你会发现关于流和管道在其它语言中也有广泛的应用。 <code class="language-plaintext highlighter-rouge notranslate">Angular</code> 中的模板语法中可以使用管道。 <code class="language-plaintext highlighter-rouge notranslate">Node.js</code> 中也有 <code class="language-plaintext highlighter-rouge notranslate">stream</code> 流的概念。</p> <h2 id="三-查看进程">三. 查看进程</h2> <p>在 <code class="language-plaintext highlighter-rouge notranslate">Windows</code> 中通过 <code class="language-plaintext highlighter-rouge notranslate">Ctrl + Alt + Delete</code> 快捷键查看软件进程。</p> <h3 id="1-w">1. w</h3> <p>帮助我们快速了解系统中目前有哪些用户登录着，以及他们在干什么。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>[root@lion ~]# w
+ 06:31:53 up 25 days,  9:53,  1 user,  load average: 0.00, 0.01, 0.05
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+root     pts/0    118.31.243.53    05:56    1.00s  0.02s  0.00s w
+ 
+06:31:53：表示当前时间
+up 25 days, 9:53：表示系统已经正常运行了"25天9小时53分钟"
+1 user：表示一个用户
+load average: 0.00, 0.01, 0.05：表示系统的负载，3个值分别表示"1分钟的平均负载"，"5分钟的平均负载"，"15分钟的平均负载"
+ 
+ USER：表示登录的用于
+ TTY：登录的终端名称为pts/0
+ FROM：连接到服务器的ip地址
+ LOGIN@：登录时间
+ IDLE：用户有多久没有活跃了
+ JCPU：该终端所有相关的进程使用的 CPU 时间，每当进程结束就停止计时，开始新的进程则会重新计时
+ PCPU：表示 CPU 执行当前程序所消耗的时间，当前进程就是在 WHAT 列里显示的程序
+ WHAT：表示当下用户正运行的程序是什么，这里我运行的是 w
+</code></pre>  </div></div> <h3 id="2-ps">2. ps</h3> <p>用于显示当前系统中的进程， <code class="language-plaintext highlighter-rouge notranslate">ps</code> 命令显示的进程列表不会随时间而更新，是静态的，是运行 <code class="language-plaintext highlighter-rouge notranslate">ps</code> 命令那个时刻的状态或者说是一个进程快照。</p> <h4 id="基础语法-5">基础语法</h4> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>[root@lion ~]# ps
+  PID TTY          TIME CMD
+ 1793 pts/0    00:00:00 bash
+ 4756 pts/0    00:00:00 ps
+ 
+ PID：进程号，每个进程都有唯一的进程号
+ TTY：进程运行所在的终端
+ TIME：进程运行时间
+ CMD：产生这个进程的程序名，如果在进程列表中看到有好几行都是同样的程序名，那么就是同样的程序产生了不止一个进程
+</code></pre>  </div></div> <h4 id="常用参数-5">常用参数</h4> <ul> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-ef</code> 列出所有进程;</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-efH</code> 以乔木状列举出所有进程;</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-u</code> 列出此用户运行的进程;</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-aux</code> 通过 <code class="language-plaintext highlighter-rouge notranslate">CPU</code> 和内存使用来过滤进程 <code class="language-plaintext highlighter-rouge notranslate">ps -aux | less</code> ;</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-aux --sort -pcpu</code> 按 <code class="language-plaintext highlighter-rouge notranslate">CPU</code> 使用降序排列， <code class="language-plaintext highlighter-rouge notranslate">-aux --sort -pmem</code> 表示按内存使用降序排列;</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-axjf</code> 以树形结构显示进程， <code class="language-plaintext highlighter-rouge notranslate">ps -axjf</code> 它和 <code class="language-plaintext highlighter-rouge notranslate">pstree</code> 效果类似。</li> </ul> <h3 id="3-top">3. top</h3> <p>获取进程的动态列表。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>top - 07:20:07 up 25 days, 10:41,  1 user,  load average: 0.30, 0.10, 0.07
+Tasks:  67 total,   1 running,  66 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.7 us,  0.3 sy,  0.0 ni, 99.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :  1882072 total,   552148 free,   101048 used,  1228876 buff/cache
+KiB Swap:        0 total,        0 free,        0 used.  1594080 avail Mem 
+ 
+  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND                                                                                                       
+  956 root      10 -10  133964  15848  10240 S  0.7  0.8 263:13.01 AliYunDun                                                                                                     
+    1 root      20   0   51644   3664   2400 S  0.0  0.2   3:23.63 systemd                                                                                                       
+    2 root      20   0       0      0      0 S  0.0  0.0   0:00.05 kthreadd                                                                                                      
+    4 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 kworker/0:0H
+</code></pre>  </div></div> <ul> <li>
+<code class="language-plaintext highlighter-rouge notranslate">top - 07:20:07 up 25 days, 10:41, 1 user, load average: 0.30, 0.10, 0.07</code> 相当 <code class="language-plaintext highlighter-rouge notranslate">w</code> 命令的第一行的信息。</li> <li>展示的这些进程是按照使用处理器 <code class="language-plaintext highlighter-rouge notranslate">%CPU</code> 的使用率来排序的。</li> </ul> <h3 id="4-kill">4. kill</h3> <p>结束一个进程， <code class="language-plaintext highlighter-rouge notranslate">kill + PID</code> 。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>kill 956 # 结束进程号为956的进程
+kill 956 957 # 结束多个进程
+kill -9 7291 # 强制结束进程
+</code></pre>  </div></div> <h2 id="四-管理进程">四. 管理进程</h2> <h3 id="1-进程状态">1. 进程状态</h3> <p>主要是切换进程的状态。我们先了解下 <code class="language-plaintext highlighter-rouge notranslate">Linux</code> 下进程的五种状态：</p> <ol> <li>状态码 <code class="language-plaintext highlighter-rouge notranslate">R</code> ：表示正在运行的状态；</li> <li>状态码 <code class="language-plaintext highlighter-rouge notranslate">S</code> ：表示中断（休眠中，受阻，当某个条件形成后或接受到信号时，则脱离该状态）；</li> <li>状态码 <code class="language-plaintext highlighter-rouge notranslate">D</code> ：表示不可中断（进程不响应系统异步信号，即使用kill命令也不能使其中断）；</li> <li>状态码 <code class="language-plaintext highlighter-rouge notranslate">Z</code> ：表示僵死（进程已终止，但进程描述符依然存在，直到父进程调用 <code class="language-plaintext highlighter-rouge notranslate">wait4()</code> 系统函数后将进程释放）；</li> <li>状态码 <code class="language-plaintext highlighter-rouge notranslate">T</code> ：表示停止（进程收到 <code class="language-plaintext highlighter-rouge notranslate">SIGSTOP</code> 、 <code class="language-plaintext highlighter-rouge notranslate">SIGSTP</code> 、 <code class="language-plaintext highlighter-rouge notranslate">SIGTIN</code> 、 <code class="language-plaintext highlighter-rouge notranslate">SIGTOU</code> 等停止信号后停止运行）。</li> </ol> <h3 id="2-前台进程--后台进程">2. 前台进程 &amp; 后台进程</h3> <p>默认情况下，用户创建的进程都是前台进程，前台进程从键盘读取数据，并把处理结果输出到显示器。例如运行 <code class="language-plaintext highlighter-rouge notranslate">top</code> 命令，这就是一个一直运行的前台进程。</p> <p>后台进程的优点是不必等待程序运行结束，就可以输入其它命令。在需要执行的命令后面添加 <code class="language-plaintext highlighter-rouge notranslate">&amp;</code> 符号，就表示启动一个后台进程。</p> <h3 id="3-">3. &amp;</h3> <p>启动后台进程，它的缺点是后台进程与终端相关联，一旦关闭终端，进程就自动结束了。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>cp name.csv name-copy.csv &amp;
+</code></pre>  </div></div> <h3 id="4-nohup">4. nohup</h3> <p>使进程不受挂断（关闭终端等动作）的影响。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>nohup cp name.csv name-copy.csv
+</code></pre>  </div></div> <p><code class="language-plaintext highlighter-rouge notranslate">nohup</code> 命令也可以和 <code class="language-plaintext highlighter-rouge notranslate">&amp;</code> 结合使用。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>nohup cp name.csv name-copy.csv &amp;
+</code></pre>  </div></div> <h3 id="5-bg">5. bg</h3> <p>使一个"后台暂停运行"的进程，状态改为"后台运行"。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>bg %1 # 不加任何参数的情况下，bg命令会默认作用于最近的一个后台进程，如果添加参数则会作用于指定标号的进程
+</code></pre>  </div></div> <p>实际案例1：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>1. 执行 grep -r "log" / &gt; grep_log 2&gt;&amp;1 命令启动一个前台进程，并且忘记添加 &amp; 符号
+2. ctrl + z 使进程状态转为后台暂停
+3. 执行 bg 将命令转为后台运行
+</code></pre>  </div></div> <p>实际案例2：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>前端开发时我们经常会执行 yarn start 启动项目
+此时我们执行 ctrl + z 先使其暂停
+然后执行 bg 使其转为后台运行
+这样当前终端就空闲出来可以干其它事情了，如果想要唤醒它就使用 fg 命令即可（后面会讲）
+</code></pre>  </div></div> <h3 id="6-jobs">6. jobs</h3> <p>显示当前终端后台进程状态。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>[root@lion ~]# jobs
+[1]+  Stopped                 top
+[2]-  Running                 grep --color=auto -r "log" / &gt; grep_log 2&gt;&amp;1 &amp;
+</code></pre>  </div></div> <h3 id="7-fg">7. fg</h3> <p><code class="language-plaintext highlighter-rouge notranslate">fg</code> 使进程转为前台运行，用法和 <code class="language-plaintext highlighter-rouge notranslate">bg</code> 命令类似。</p> <p>我们用一张图来表示前后台进程切换：</p> <p><img src="https://image.justmyfreedom.com//static/assets/blog_img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230517105713min.png" alt="justmyfreedom图片"></p> <p>我们可以使程序在后台运行，成为后台进程，这样在当前终端中我们就可以做其他事情了，而不必等待此进程运行结束。</p> <h2 id="五-守护进程">五. 守护进程</h2> <p>一个运行起来的程序被称为进程。在 <code class="language-plaintext highlighter-rouge notranslate">Linux</code> 中有些进程是特殊的，它不与任何进程关联，不论用户的身份如何，都在后台运行，这些进程的父进程是 <code class="language-plaintext highlighter-rouge notranslate">PID</code> 为1的进程， <code class="language-plaintext highlighter-rouge notranslate">PID</code> 为1的进程只在系统关闭时才会被销毁。它们会在后台一直运行等待分配工作。我们将这类进程称之为守护进程 <code class="language-plaintext highlighter-rouge notranslate">daemon</code> 。</p> <p>守护进程的名字通常会在最后有一个 <code class="language-plaintext highlighter-rouge notranslate">d</code> ，表示 <code class="language-plaintext highlighter-rouge notranslate">daemon</code> 守护的意思，例如 <code class="language-plaintext highlighter-rouge notranslate">systemd</code> 、<code class="language-plaintext highlighter-rouge notranslate">httpd</code> 。</p> <h3 id="1-systemd">1. systemd</h3> <p><code class="language-plaintext highlighter-rouge notranslate">systemd</code> 是一个 <code class="language-plaintext highlighter-rouge notranslate">Linux</code> 系统基础组件的集合，提供了一个系统和服务管理器，运行为 <code class="language-plaintext highlighter-rouge notranslate">PID 1</code> 并负责启动其它程序。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>[root@lion ~]# ps -aux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+
+root         1  0.0  0.2  51648  3852 ?        Ss   Feb01   1:50 /usr/lib/systemd/systemd --switched-root --system --deserialize 22
+</code></pre>  </div></div> <p>通过命令也可以看到 <code class="language-plaintext highlighter-rouge notranslate">PID</code> 为1的进程就是 <code class="language-plaintext highlighter-rouge notranslate">systemd</code> 的系统进程。</p> <p><code class="language-plaintext highlighter-rouge notranslate">systemd</code> 常用命令（它是一组命令的集合）：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>systemctl start nginx # 启动服务
+systemctl stop nginx # 停止服务
+systemctl restart nginx # 重启服务
+systemctl status nginx # 查看服务状态
+systemctl reload nginx # 重载配置文件(不停止服务的情况)
+systemctl enable nginx # 开机自动启动服务
+systemctl disable nginx # 开机不自动启动服务
+systemctl is-enabled nginx # 查看服务是否开机自动启动
+systemctl list-unit-files --type=service # 查看各个级别下服务的启动和禁用情况
+</code></pre>  </div></div> <h2 id="六-文件压缩解压">六. 文件压缩解压</h2> <ul> <li>打包：是将多个文件变成一个总的文件，它的学名叫存档、归档。</li> <li>压缩：是将一个大文件（通常指归档）压缩变成一个小文件。</li> </ul> <p>我们常常使用 <code class="language-plaintext highlighter-rouge notranslate">tar</code> 将多个文件归档为一个总的文件，称为 <code class="language-plaintext highlighter-rouge notranslate">archive</code> 。 然后用 <code class="language-plaintext highlighter-rouge notranslate">gzip</code> 或 <code class="language-plaintext highlighter-rouge notranslate">bzip2</code> 命令将 <code class="language-plaintext highlighter-rouge notranslate">archive</code> 压缩为更小的文件。</p> <p><img src="https://image.justmyfreedom.com//static/assets/blog_img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230517110548min.png" alt="justmyfreedom图片"></p> <h3 id="1-tar">1. tar</h3> <p>创建一个 <code class="language-plaintext highlighter-rouge notranslate">tar</code> 归档。</p> <h4 id="基础用法">基础用法</h4> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>tar -cvf sort.tar sort/ # 将sort文件夹归档为sort.tar
+tar -cvf archive.tar file1 file2 file3 # 将 file1 file2 file3 归档为archive.tar
+</code></pre>  </div></div> <h4 id="常用参数-6">常用参数</h4> <ul> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-cvf</code> 表示 <code class="language-plaintext highlighter-rouge notranslate">create</code>（创建）+ <code class="language-plaintext highlighter-rouge notranslate">verbose</code>（细节）+ <code class="language-plaintext highlighter-rouge notranslate">file</code>（文件），创建归档文件并显示操作细节；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-tf</code> 显示归档里的内容，并不解开归档；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-rvf</code> 追加文件到归档， <code class="language-plaintext highlighter-rouge notranslate">tar -rvf archive.tar file.txt</code> ；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-xvf</code> 解开归档， <code class="language-plaintext highlighter-rouge notranslate">tar -xvf archive.tar</code> 。</li> </ul> <h3 id="2-gzip--gunzip">2. gzip / gunzip</h3> <p>"压缩/解压"归档，默认用 <code class="language-plaintext highlighter-rouge notranslate">gzip</code> 命令，压缩后的文件后缀名为 <code class="language-plaintext highlighter-rouge notranslate">.tar.gz</code> 。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>gzip archive.tar # 压缩
+gunzip archive.tar.gz # 解压
+</code></pre>  </div></div> <h3 id="3-tar-归档压缩">3. tar 归档+压缩</h3> <p>可以用 <code class="language-plaintext highlighter-rouge notranslate">tar</code> 命令同时完成归档和压缩的操作，就是给 <code class="language-plaintext highlighter-rouge notranslate">tar</code> 命令多加一个选项参数，使之完成归档操作后，还是调用 <code class="language-plaintext highlighter-rouge notranslate">gzip</code> 或 <code class="language-plaintext highlighter-rouge notranslate">bzip2</code> 命令来完成压缩操作。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>tar -zcvf archive.tar.gz archive/ # 将archive文件夹归档并压缩
+tar -zxvf archive.tar.gz # 将archive.tar.gz归档压缩文件解压
+</code></pre>  </div></div> <h3 id="4-zcatzlesszmore">4. zcat、zless、zmore</h3> <p>之前讲过使用 <code class="language-plaintext highlighter-rouge notranslate">cat less more</code> 可以查看文件内容，但是压缩文件的内容是不能使用这些命令进行查看的，而要使用 <code class="language-plaintext highlighter-rouge notranslate">zcat、zless、zmore</code> 进行查看。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>zcat archive.tar.gz
+</code></pre>  </div></div> <h3 id="5-zipunzip">5. zip/unzip</h3> <p>"压缩/解压" <code class="language-plaintext highlighter-rouge notranslate">zip</code> 文件（ <code class="language-plaintext highlighter-rouge notranslate">zip</code> 压缩文件一般来自 <code class="language-plaintext highlighter-rouge notranslate">windows</code> 操作系统）。</p> <h4 id="命令安装">命令安装</h4> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code># Red Hat 一族中的安装方式
+yum install zip 
+yum install unzip
+</code></pre>  </div></div> <h4 id="基础用法-1">基础用法</h4> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>unzip archive.zip # 解压 .zip 文件
+unzip -l archive.zip # 不解开 .zip 文件，只看其中内容
+zip -r sort.zip sort/ # 将sort文件夹压缩为 sort.zip，其中-r表示递归
+</code></pre>  </div></div> <h2 id="七-编译安装软件">七. 编译安装软件</h2> <p>之前我们学会了使用 <code class="language-plaintext highlighter-rouge notranslate">yum</code> 命令进行软件安装，如果碰到 <code class="language-plaintext highlighter-rouge notranslate">yum</code> 仓库中没有的软件，我们就需要会更高级的软件安装"源码编译安装"。</p> <h3 id="编译安装">编译安装</h3> <p>简单来说，编译就是将程序的源代码转换成可执行文件的过程。大多数 <code class="language-plaintext highlighter-rouge notranslate">Linux</code> 的程序都是开放源码的，可以编译成适合我们的电脑和操纵系统属性的可执行文件。</p> <p>基本步骤如下：</p> <ol> <li>下载源代码</li> <li>解压压缩包</li> <li>配置</li> <li>编译</li> <li>安装</li> </ol> <h4 id="实际案例">实际案例</h4> <h5 id="1下载">1、下载</h5> <p>我们来编译安装 <code class="language-plaintext highlighter-rouge notranslate">htop</code> 软件，首先在它的官网下载源码：</p> <blockquote> <p>https://bintray.com/htop/source/htop#files</p> </blockquote> <p>下载好的源码在本机电脑上使用如下命令同步到服务器上：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>scp 文件名 用户名@服务器ip:目标路径
+scp ~/Desktop/htop-3.0.0.tar.gz root@121.42.11.34:.
+</code></pre>  </div></div> <p>也可以使用 <code class="language-plaintext highlighter-rouge notranslate">wegt</code> 进行下载：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>wegt+下载地址
+wegt https://bintray.com/htop/source/download_file?file_path=htop-3.0.0.tar.gz
+</code></pre>  </div></div> <h5 id="2解压文件">2、解压文件</h5> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>tar -zxvf htop-3.0.0.tar.gz # 解压
+cd htop-3.0.0 # 进入目录
+</code></pre>  </div></div> <h5 id="3配置">3、配置</h5> <p>执行 <code class="language-plaintext highlighter-rouge notranslate">./configure</code> ，它会分析你的电脑去确认编译所需的工具是否都已经安装了。</p> <h5 id="4编译">4、编译</h5> <p>执行 <code class="language-plaintext highlighter-rouge notranslate">make</code> 命令</p> <h5 id="5安装">5、安装</h5> <p>执行 <code class="language-plaintext highlighter-rouge notranslate">make install</code> 命令，安装完成后执行 <code class="language-plaintext highlighter-rouge notranslate">ls /usr/local/bin/</code> 查看是否有 <code class="language-plaintext highlighter-rouge notranslate">htop</code> 命令。如果有就可以执行 <code class="language-plaintext highlighter-rouge notranslate">htop</code> 命令查看系统进程了。</p> <h2 id="八-网络">八. 网络</h2> <h3 id="1-ifconfig">1. ifconfig</h3> <p>查看 <code class="language-plaintext highlighter-rouge notranslate">ip</code> 网络相关信息，如果命令不存在的话， 执行命令 <code class="language-plaintext highlighter-rouge notranslate">yum install net-tools</code> 安装。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>[root@lion ~]# ifconfig
+ 
+eth0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
+        inet 172.31.24.78  netmask 255.255.240.0  broadcast 172.31.31.255
+        ether 00:16:3e:04:9c:cd  txqueuelen 1000  (Ethernet)
+        RX packets 1592318  bytes 183722250 (175.2 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 1539361  bytes 154044090 (146.9 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+ 
+lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+</code></pre>  </div></div> <p>参数解析：</p> <ul> <li>
+<code class="language-plaintext highlighter-rouge notranslate">eth0</code> 对应有线连接（对应你的有线网卡），就是用网线来连接的上网。 <code class="language-plaintext highlighter-rouge notranslate">eth</code> 是 <code class="language-plaintext highlighter-rouge notranslate">Ethernet</code> 的缩写，表示"以太网"。有些电脑可能同时有好几条网线连着，例如服务器，那么除了 <code class="language-plaintext highlighter-rouge notranslate">eht0</code> ，你还会看到 <code class="language-plaintext highlighter-rouge notranslate">eth1</code> 、 <code class="language-plaintext highlighter-rouge notranslate">eth2</code> 等。</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">lo</code> 表示本地回环（ <code class="language-plaintext highlighter-rouge notranslate">Local Loopback</code> 的缩写，对应一个虚拟网卡）可以看到它的 <code class="language-plaintext highlighter-rouge notranslate">ip</code> 地址是 <code class="language-plaintext highlighter-rouge notranslate">127.0.0.1</code> 。每台电脑都应该有这个接口，因为它对应着"连向自己的链接"。这也是被称之为"本地回环"的原因。所有经由这个接口发送的东西都会回到你自己的电脑。看起来好像并没有什么用，但有时为了某些缘故，我们需要连接自己。例如用来测试一个网络程序，但又不想让局域网或外网的用户查看，只能在此台主机上运行和查看所有的网络接口。例如在我们启动一个前端工程时，在浏览器输入 <code class="language-plaintext highlighter-rouge notranslate">127.0.0.1:3000</code> 启动项目就能查看到自己的 <code class="language-plaintext highlighter-rouge notranslate">web</code> 网站，并且它只有你能看到。</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">wlan0</code> 表示无线局域网（上面案例并未展示）。</li> </ul> <h3 id="2-host">2. host</h3> <p><code class="language-plaintext highlighter-rouge notranslate">ip</code> 地址和主机名的互相转换。</p> <h4 id="软件安装">软件安装</h4> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>yum install bind-utils
+</code></pre>  </div></div> <h4 id="基础用法-2">基础用法</h4> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>[root@lion ~]# host github.com
+baidu.com has address 13.229.188.59
+ 
+[root@lion ~]# host 13.229.188.59
+59.188.229.13.in-addr.arpa domain name pointer ec2-13-229-188-59.ap-southeast-1.compute.amazonaws.com.
+</code></pre>  </div></div> <h3 id="3-ssh-连接远程服务器">3. ssh 连接远程服务器</h3> <p>通过非对称加密以及对称加密的方式（同 <code class="language-plaintext highlighter-rouge notranslate">HTTPS</code> 安全连接原理相似）连接到远端服务器。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>ssh 用户@ip:port
+ 
+1、ssh root@172.20.10.1:22 # 端口号可以省略不写，默认是22端口
+2、输入连接密码后就可以操作远端服务器了
+</code></pre>  </div></div> <h4 id="配置-ssh">配置 ssh</h4> <p><code class="language-plaintext highlighter-rouge notranslate">config</code> 文件可以配置 <code class="language-plaintext highlighter-rouge notranslate">ssh</code> ，方便批量管理多个 <code class="language-plaintext highlighter-rouge notranslate">ssh</code> 连接。</p> <p>配置文件分为以下几种：</p> <ul> <li>全局 <code class="language-plaintext highlighter-rouge notranslate">ssh</code> 服务端的配置： <code class="language-plaintext highlighter-rouge notranslate">/etc/ssh/sshd_config</code> ；</li> <li>全局 <code class="language-plaintext highlighter-rouge notranslate">ssh</code> 客户端的配置： <code class="language-plaintext highlighter-rouge notranslate">/etc/ssh/ssh_config</code>（很少修改）；</li> <li>当前用户 <code class="language-plaintext highlighter-rouge notranslate">ssh</code> 客户端的配置： <code class="language-plaintext highlighter-rouge notranslate">~/.ssh/config</code> 。</li> </ul> <p>【服务端 <code class="language-plaintext highlighter-rouge notranslate">config</code> 文件的常用配置参数】</p> <p><img src="https://image.justmyfreedom.com//static/assets/blog_img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230517110935min.png" alt="justmyfreedom图片"></p> <blockquote> <p>[注意] 修改完服务端配置文件需要重启服务 <code class="language-plaintext highlighter-rouge notranslate">systemctl restart sshd</code></p> </blockquote> <p>【客户端 <code class="language-plaintext highlighter-rouge notranslate">config</code> 文件的常用配置参数】</p> <p><img src="https://image.justmyfreedom.com//static/assets/blog_img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230517111038min.png" alt="justmyfreedom图片"></p> <p>配置当前用户的 <code class="language-plaintext highlighter-rouge notranslate">config</code> ：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code># 创建config
+vim ~/.ssh/config
+ 
+# 填写一下内容
+Host lion # 别名
+ HostName 172.x.x.x # ip 地址
+  Port 22 # 端口
+  User root # 用户
+</code></pre>  </div></div> <p>这样配置完成后，下次登录时，可以这样登录 <code class="language-plaintext highlighter-rouge notranslate">ssh lion</code> 会自动识别为 <code class="language-plaintext highlighter-rouge notranslate">root</code> 用户。</p> <blockquote> <p>[注意] 这段配置不是在服务器上，而是你自己的机器上，它仅仅是设置了一个别名。</p> </blockquote> <h4 id="免密登录">免密登录</h4> <p><code class="language-plaintext highlighter-rouge notranslate">ssh</code> 登录分两种，一种是基于口令（账号密码），另外一种是基于密钥的方式。</p> <p>基于口令，就是每次登录输入账号和密码，显然这样做是比较麻烦的，今天主要学习如何基于密钥实现免密登录。</p> <h5 id="基于密钥验证原理">基于密钥验证原理</h5> <p>客户机生成密钥对（公钥和私钥），把公钥上传到服务器，每次登录会与服务器的公钥进行比较，这种验证登录的方法更加安全，也被称为"公钥验证登录"。</p> <h5 id="具体实现步骤">具体实现步骤</h5> <p>1、在客户机中生成密钥对（公钥和私钥） <code class="language-plaintext highlighter-rouge notranslate">ssh-keygen</code>（默认使用 RSA 非对称加密算法）</p> <p>运行完 <code class="language-plaintext highlighter-rouge notranslate">ssh-keygen</code> 会在 <code class="language-plaintext highlighter-rouge notranslate">~/.ssh/</code> 目录下，生成两个文件：</p> <ul> <li>
+<code class="language-plaintext highlighter-rouge notranslate">id_rsa.pub</code> ：公钥</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">id_rsa</code> ：私钥</li> </ul> <p>2、把客户机的公钥传送到服务</p> <p>执行 <code class="language-plaintext highlighter-rouge notranslate">ssh-copy-id root@172.x.x.x</code>（<code class="language-plaintext highlighter-rouge notranslate">ssh-copy-id</code> 它会把客户机的公钥追加到服务器 <code class="language-plaintext highlighter-rouge notranslate">~/.ssh/authorized_keys</code> 的文件中）。</p> <p>执行完成后，运行 <code class="language-plaintext highlighter-rouge notranslate">ssh root@172.x.x.x</code> 就可以实现免密登录服务器了。</p> <p>配合上面设置好的别名，直接执行 <code class="language-plaintext highlighter-rouge notranslate">ssh lion</code> 就可以登录，是不是非常方便。</p> <h3 id="3-wget">3. wget</h3> <p>可以使我们直接从终端控制台下载文件，只需要给出文件的HTTP或FTP地址。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>wget [参数][URL地址]
+wget http://www.minjieren.com/wordpress-3.1-zh_CN.zip
+</code></pre>  </div></div> <p><code class="language-plaintext highlighter-rouge notranslate">wget</code> 非常稳定，如果是由于网络原因下载失败， <code class="language-plaintext highlighter-rouge notranslate">wget</code> 会不断尝试，直到整个文件下载完毕。</p> <h4 id="常用参数-7">常用参数</h4> <ul> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-c</code> 继续中断的下载。</li> </ul> <h2 id="九-备份">九. 备份</h2> <h3 id="1-scp">1. scp</h3> <p>它是 <code class="language-plaintext highlighter-rouge notranslate">Secure Copy</code> 的缩写，表示安全拷贝。 <code class="language-plaintext highlighter-rouge notranslate">scp</code> 可以使我们通过网络，把文件从一台电脑拷贝到另一台电脑。</p> <p><code class="language-plaintext highlighter-rouge notranslate">scp</code> 是基于 <code class="language-plaintext highlighter-rouge notranslate">ssh</code> 的原理来运作的， <code class="language-plaintext highlighter-rouge notranslate">ssh</code> 会在两台通过网络连接的电脑之间创建一条安全通信的管道， <code class="language-plaintext highlighter-rouge notranslate">scp</code> 就利用这条管道安全地拷贝文件。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>scp source_file destination_file # source_file 表示源文件，destination_file 表示目标文件
+</code></pre>  </div></div> <p>其中 <code class="language-plaintext highlighter-rouge notranslate">source_file</code> 和 <code class="language-plaintext highlighter-rouge notranslate">destination_file</code> 都可以这样表示： <code class="language-plaintext highlighter-rouge notranslate">user@ip:file_name</code> ， <code class="language-plaintext highlighter-rouge notranslate">user</code> 是登录名， <code class="language-plaintext highlighter-rouge notranslate">ip</code> 是域名或 <code class="language-plaintext highlighter-rouge notranslate">ip</code> 地址。 <code class="language-plaintext highlighter-rouge notranslate">file_name</code> 是文件路径。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>scp file.txt root@192.168.1.5:/root # 表示把我的电脑中当前文件夹下的 file.txt 文件拷贝到远程电脑
+scp root@192.168.1.5:/root/file.txt file.txt # 表示把远程电脑上的 file.txt 文件拷贝到本机
+</code></pre>  </div></div> <h3 id="2-rsync">2. rsync</h3> <p><code class="language-plaintext highlighter-rouge notranslate">rsync</code> 命令主要用于远程同步文件。它可以同步两个目录，不管它们是否处于同一台电脑。它应该是最常用于"增量备份"的命令了。它就是智能版的 <code class="language-plaintext highlighter-rouge notranslate">scp</code> 命令。</p> <h4 id="软件安装-1">软件安装</h4> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>yum install rsync
+</code></pre>  </div></div> <h4 id="基础用法-3">基础用法</h4> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>rsync -arv Images/ backups/ # 将Images 目录下的所有文件备份到 backups 目录下
+rsync -arv Images/ root@192.x.x.x:backups/ # 同步到服务器的backups目录下
+</code></pre>  </div></div> <h4 id="常用参数-8">常用参数</h4> <ul> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-a</code> 保留文件的所有信息，包括权限，修改日期等；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-r</code> 递归调用，表示子目录的所有文件也都包括；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">-v</code> 冗余模式，输出详细操作信息。</li> </ul> <p>默认地， <code class="language-plaintext highlighter-rouge notranslate">rsync</code> 在同步时并不会删除目标目录的文件，例如你在源目录中删除一个文件，但是用 <code class="language-plaintext highlighter-rouge notranslate">rsync</code> 同步时，它并不会删除同步目录中的相同文件。如果向删除也可以这么做： <code class="language-plaintext highlighter-rouge notranslate">rsync -arv --delete Images/ backups/</code> 。</p> <h2 id="十-系统">十. 系统</h2> <h3 id="1-halt">1. halt</h3> <p>关闭系统，需要 <code class="language-plaintext highlighter-rouge notranslate">root</code> 身份。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>halt
+</code></pre>  </div></div> <h3 id="2-reboot">2. reboot</h3> <p>重启系统，需要 <code class="language-plaintext highlighter-rouge notranslate">root</code> 身份。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>reboot
+</code></pre>  </div></div> <h3 id="3-poweroff">3. poweroff</h3> <p>直接运行即可关机，不需要 <code class="language-plaintext highlighter-rouge notranslate">root</code> 身份。</p> <h2 id="十一-vim-编辑器">十一. Vim 编辑器</h2> <h3 id="1-vim-是什么">1. Vim 是什么？</h3> <p><code class="language-plaintext highlighter-rouge notranslate">Vim</code> 是从 <code class="language-plaintext highlighter-rouge notranslate">vi</code> 发展出来的一个文本编辑器。其代码补完、编译及错误跳转等方便编程的功能特别丰富，在程序员中被广泛使用。和 <code class="language-plaintext highlighter-rouge notranslate">Emacs</code> 并列成为类 <code class="language-plaintext highlighter-rouge notranslate">Unix</code> 系统用户最喜欢的编辑器。</p> <h3 id="2-vim-常用模式">2. Vim 常用模式</h3> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>交互模式
+插入模式
+命令模式
+可视模式
+</code></pre>  </div></div> <h4 id="交互模式">交互模式</h4> <p>也成为正常模式，这是 <code class="language-plaintext highlighter-rouge notranslate">Vim</code> 的默认模式，每次运行 <code class="language-plaintext highlighter-rouge notranslate">Vim</code> 程序的时候，就会进入这个模式。</p> <p>例如执行 <code class="language-plaintext highlighter-rouge notranslate">vim name.txt</code> 则会进入交互模式。</p> <p>交互模式特征：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>在这个模式下，你不能输入文本；
+它可以让我们在文本间移动，删除一行文本，复制黏贴文本，跳转到指定行，撤销操作，等等。
+</code></pre>  </div></div> <h4 id="插入模式">插入模式</h4> <p>这个模式是我们熟悉的文本编辑器的模式，就是可以输入任何你想输入的内容。进入这个模式有几种方法，最常用的方法是按字母键 <code class="language-plaintext highlighter-rouge notranslate">i</code> （ <code class="language-plaintext highlighter-rouge notranslate">i、I、a、A、o、O</code> 都可以进入插入模式，只是所处的位置不同），退出这种模式，只需要按下 <code class="language-plaintext highlighter-rouge notranslate">Esc</code> 键。</p> <ul> <li>
+<code class="language-plaintext highlighter-rouge notranslate">i, I</code> 进入输入模式 <code class="language-plaintext highlighter-rouge notranslate">Insert mode</code> ： <code class="language-plaintext highlighter-rouge notranslate">i</code> 为"从目前光标所在处输入"， <code class="language-plaintext highlighter-rouge notranslate">I</code> 为"在目前所在行的第一个非空格符处开始输入"；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">a, A</code> 进入输入模式 <code class="language-plaintext highlighter-rouge notranslate">Insert mode</code> ： <code class="language-plaintext highlighter-rouge notranslate">a</code> 为"从目前光标所在的下一个字符处开始输入"， <code class="language-plaintext highlighter-rouge notranslate">A</code> 为"从光标所在行的最后一个字符处开始输入"；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">o, O</code> 进入输入模式 <code class="language-plaintext highlighter-rouge notranslate">Insert mode</code> ： <code class="language-plaintext highlighter-rouge notranslate">o</code> 为"在目前光标所在的下一行处输入新的一行"； <code class="language-plaintext highlighter-rouge notranslate">O</code> 为在目前光标所在处的上一行输入新的一行。</li> </ul> <h4 id="命令模式">命令模式</h4> <p>命令模式也称为底线命令模式，这个模式下可以运行一些命令例如"退出"，"保存"，等动作。</p> <p>也可以用这个模式来激活一些 <code class="language-plaintext highlighter-rouge notranslate">Vim</code> 配置，例如语法高亮，显示行号，等。甚至还可以发送一些命令给终端命令行，例如 <code class="language-plaintext highlighter-rouge notranslate">ls、cp</code> 。</p> <p>为了进入命令模式，首先要进入交互模式，再按下冒号键。</p> <p>用一张图表示三种模式如何切换：</p> <p><img src="https://image.justmyfreedom.com//static/assets/blog_img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230517111440min.png" alt="justmyfreedom图片"></p> <h4 id="基本操作">基本操作</h4> <h5 id="打开-vim">打开 Vim</h5> <p>在终端命令行中输入 <code class="language-plaintext highlighter-rouge notranslate">vim</code> 回车后 <code class="language-plaintext highlighter-rouge notranslate">Vim</code> 就会被运行起来，也可以用 <code class="language-plaintext highlighter-rouge notranslate">Vim</code> 来打开一个文件，只需要在 <code class="language-plaintext highlighter-rouge notranslate">vim</code> 后面再加文件名。如 <code class="language-plaintext highlighter-rouge notranslate">vim file.name</code> ，如果文件不存在，那么会被创建。</p> <h5 id="插入">插入</h5> <p>进入文件之后，此时处于交互模式，可以通过输入 <code class="language-plaintext highlighter-rouge notranslate">i</code> 进入插入模式。</p> <h5 id="移动">移动</h5> <p>在 <code class="language-plaintext highlighter-rouge notranslate">Vim</code> 的交互模式下，我们可以在文本中移动光标。</p> <ul> <li>
+<code class="language-plaintext highlighter-rouge notranslate">h</code> 向左移动一个字符</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">j</code> 向下移动一个字符</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">k</code> 向上移动一个字符</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">i</code> 向右移动一个字符</li> </ul> <p>当然也可以使用四个方向键进行移动，效果是一样的。</p> <h5 id="跳至行首和行末">跳至行首和行末</h5> <ul> <li>
+<strong>「行首：」</strong> 在交互模式下，为了将光标定位到一行的开始位置，只需要按下数字键 <code class="language-plaintext highlighter-rouge notranslate">0</code> 即可，键盘上的 <code class="language-plaintext highlighter-rouge notranslate">Home</code> 键也有相同效果。</li> <li>
+<strong>「行末：」</strong> 在交互模式下，为了将光标定位到一行的末尾，只需要按下美元符号键 <code class="language-plaintext highlighter-rouge notranslate">$</code> 即可，键盘上的 <code class="language-plaintext highlighter-rouge notranslate">End</code> 键也有相同效果。</li> </ul> <h4 id="按单词移动">按单词移动</h4> <p>在交互模式下，按字母键 <code class="language-plaintext highlighter-rouge notranslate">w</code> 可以一个单词一个单词的移动。</p> <h5 id="退出文件">退出文件</h5> <p>在交互模式下，按下冒号键 <code class="language-plaintext highlighter-rouge notranslate">:</code> 进入命令模式，再按下 <code class="language-plaintext highlighter-rouge notranslate">q</code> 键，就可以退出了。</p> <p>如果在退出之前又修改了文件，就直接想用 <code class="language-plaintext highlighter-rouge notranslate">:q</code> 退出 <code class="language-plaintext highlighter-rouge notranslate">Vim</code> ，那么 <code class="language-plaintext highlighter-rouge notranslate">Vim</code> 会显示一个红字标明错误信息。此时我们有两个选择：</p> <ol> <li>保存并退出 <code class="language-plaintext highlighter-rouge notranslate">:wq</code> 或 <code class="language-plaintext highlighter-rouge notranslate">:x</code> ；</li> <li>不保存且退出 <code class="language-plaintext highlighter-rouge notranslate">:q!</code> 。</li> </ol> <h4 id="标准操作">标准操作</h4> <h5 id="删除字符">删除字符</h5> <p>在交互模式下，将光标定位到一个你想要删除的字符上，按下字母键 <code class="language-plaintext highlighter-rouge notranslate">x</code> 你会发现这个字符被删除了。</p> <p>也可以一次性删除多个字符，只需要在按 <code class="language-plaintext highlighter-rouge notranslate">x</code> 键之前输入数字即可。</p> <h5 id="删除剪切单词行">删除（剪切）单词，行</h5> <ul> <li>
+<strong>「删除一行」</strong>：连按两次 <code class="language-plaintext highlighter-rouge notranslate">d</code> 来删除光标所在的那一行。</li> <li>
+<strong>「删除多行」</strong>：例如先输入数字 <code class="language-plaintext highlighter-rouge notranslate">2</code> ，再按下 <code class="language-plaintext highlighter-rouge notranslate">dd</code> ，就会删除从光标所在行开始的两行。</li> <li>
+<strong>「删除一个单词」</strong>：将光标置于一个单词的首字母处，然后按下 <code class="language-plaintext highlighter-rouge notranslate">dw</code> 。</li> <li>
+<strong>「删除多个单词」</strong>：例如先按数字键 <code class="language-plaintext highlighter-rouge notranslate">2</code> 再按 <code class="language-plaintext highlighter-rouge notranslate">dw</code> 就可以删除两个单词了。</li> <li>
+<strong>「从光标所在位置删除至行首」</strong>： <code class="language-plaintext highlighter-rouge notranslate">d0</code> 。</li> <li>
+<strong>「从光标所在位置删除至行末」</strong>： <code class="language-plaintext highlighter-rouge notranslate">d$</code> 。</li> </ul> <h5 id="复制单词行">复制单词，行</h5> <ul> <li>
+<strong>「复制行」</strong>：按两次 <code class="language-plaintext highlighter-rouge notranslate">y</code> 会把光标所在行复制到内存中，和 <code class="language-plaintext highlighter-rouge notranslate">dd</code> 类似， <code class="language-plaintext highlighter-rouge notranslate">dd</code> 用于"剪切"光标所在行。</li> <li>
+<strong>「复制单词」</strong>： <code class="language-plaintext highlighter-rouge notranslate">yw</code> 会复制一个单词。</li> <li>
+<strong>「复制到行末」</strong>： <code class="language-plaintext highlighter-rouge notranslate">y$</code> 是复制从光标所在处到行末的所有字符。</li> <li>
+<strong>「复制到行首」</strong>： <code class="language-plaintext highlighter-rouge notranslate">y0</code> 是复制光标所在处到行首的所有字符。</li> </ul> <h5 id="粘贴">粘贴</h5> <p>如果之前用 <code class="language-plaintext highlighter-rouge notranslate">dd</code> 或者 <code class="language-plaintext highlighter-rouge notranslate">yy</code> 剪切复制过来的，可以使用 <code class="language-plaintext highlighter-rouge notranslate">p</code> 来粘贴。同样也可以使用 <code class="language-plaintext highlighter-rouge notranslate">数字+p</code> 来表示复制多次。</p> <h5 id="替换一个字符">替换一个字符</h5> <p>在交互模式下，将光标置于想要替换的字符上。按下 <code class="language-plaintext highlighter-rouge notranslate">r</code> 键，接着输入你要替换的字符即可。</p> <h5 id="撤销操作">撤销操作</h5> <p>如果要撤销最近的修改，只需要按下 <code class="language-plaintext highlighter-rouge notranslate">u</code> 键，如果想要撤销最近四次修改，可以按下4，再按下 <code class="language-plaintext highlighter-rouge notranslate">u</code> 。</p> <h5 id="重做">重做</h5> <p>取消撤销，也就是重做之前的修改使用 <code class="language-plaintext highlighter-rouge notranslate">ctrl + r</code> 。</p> <h5 id="跳转到指定行">跳转到指定行</h5> <p><code class="language-plaintext highlighter-rouge notranslate">Vim</code> 编辑的文件中，每一行都有一个行号，行号从1开始，逐一递增。</p> <p>行号默认是不显示，如果需要它显示的话，可以进入命令模式，然后输入 <code class="language-plaintext highlighter-rouge notranslate">set nu</code> ，如果要隐藏行号的话，使用 <code class="language-plaintext highlighter-rouge notranslate">set nonu</code> 。</p> <ul> <li>跳转到指定行： <code class="language-plaintext highlighter-rouge notranslate">数字+gg</code> ，例如 <code class="language-plaintext highlighter-rouge notranslate">7gg</code> ，表示跳转到第7行。</li> <li>要跳转到最后一行，按下 <code class="language-plaintext highlighter-rouge notranslate">G</code> 。</li> <li>要跳转到第一行，按下 <code class="language-plaintext highlighter-rouge notranslate">gg</code> 。</li> </ul> <h4 id="高级操作">高级操作</h4> <h5 id="查找">查找</h5> <p>处于交互模式下，按下 <code class="language-plaintext highlighter-rouge notranslate">/</code> 键，那么就进入查找模式，输入你要查找的字符串，然后按下回车。光标就会跳转到文件中下一个查找到的匹配处。如果字符串不存在，那么会显示 <code class="language-plaintext highlighter-rouge notranslate">"pattern not found"</code> 。</p> <ul> <li>
+<code class="language-plaintext highlighter-rouge notranslate">n</code> 跳转到下一个匹配项；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">N</code> 跳转到上一个匹配项。</li> </ul> <blockquote> <p>?</p> <p>[注意] 用斜杠来进行的查找是从当前光标处开始向文件尾搜索，如果你要从当前光标处开始，向文件头搜索则使用 <code class="language-plaintext highlighter-rouge notranslate">?</code> ，当然也可以先按下 <code class="language-plaintext highlighter-rouge notranslate">gg</code> 跳转到第一行在进行全文搜索。</p> <p>?</p> </blockquote> <h5 id="查找并替换">查找并替换</h5> <p>替换光标所在行第一个匹配的字符串：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code># 语法
+:s/旧字符串/新字符串
+# 实例
+:s/one/two
+</code></pre>  </div></div> <p>替换光标所在行所有旧字符串为新字符串：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code># 语法
+:s/旧字符串/新字符串/g
+</code></pre>  </div></div> <p>替换第几行到第几行中所有字符串：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code># 语法
+:n,m s/旧字符串/新字符串/g
+# 实例
+:2,4 s/one/two/g
+</code></pre>  </div></div> <p>最常用的就是全文替换了：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code># 语法
+:%s/旧字符串/新字符串/g
+</code></pre>  </div></div> <h5 id="合并文件">合并文件</h5> <p>可以用冒号 <code class="language-plaintext highlighter-rouge notranslate">+r</code> ( <code class="language-plaintext highlighter-rouge notranslate">:r</code> ) 实现在光标处插入一个文件的内容。</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>:r filename # 可以用Tab键来自动补全另外一个文件的路径
+</code></pre>  </div></div> <h5 id="分屏">分屏</h5> <p><code class="language-plaintext highlighter-rouge notranslate">Vim</code> 有一个特别便捷的功能那就是分屏，可以同时打开好几个文件，分屏之后，屏幕每一块被称为一个 <code class="language-plaintext highlighter-rouge notranslate">viewport</code> ，表示"视口"。</p> <ul> <li>横向分屏 <code class="language-plaintext highlighter-rouge notranslate">:sp 文件名</code>
+</li> <li>垂直分屏 <code class="language-plaintext highlighter-rouge notranslate">:vsp 文件名</code>
+</li> </ul> <h6 id="分屏模式下的快捷键">分屏模式下的快捷键</h6> <ul> <li>
+<code class="language-plaintext highlighter-rouge notranslate">Ctrl + w</code> 再加 <code class="language-plaintext highlighter-rouge notranslate">Ctrl + w</code> ，表示从一个 <code class="language-plaintext highlighter-rouge notranslate">viewport</code> 移动光标到另外一个 <code class="language-plaintext highlighter-rouge notranslate">viewport</code> ；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">Ctrl + w</code> 再加 "方向键"，就可以移动到这个方向所处的下一个视口了；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">Ctrl + w</code> 再加 <code class="language-plaintext highlighter-rouge notranslate">+</code> 号，表示扩大当前视口；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">Ctrl + w</code> 再加 <code class="language-plaintext highlighter-rouge notranslate">-</code> 号，表示缩小当前视口；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">Ctrl + w</code> 再加 <code class="language-plaintext highlighter-rouge notranslate">=</code> 号，表示平均当前视口；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">Ctrl + w</code> 再加 <code class="language-plaintext highlighter-rouge notranslate">r</code> 键，会反向调换视口位置；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">Ctrl + w</code> 再加 <code class="language-plaintext highlighter-rouge notranslate">q</code> 键，会关闭当前视口；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">Ctrl + w</code> 再加 <code class="language-plaintext highlighter-rouge notranslate">o</code> 键，会关闭除当前视口以外的所有视口；</li> </ul> <h5 id="运行外部命令-">运行外部命令 <code class="language-plaintext highlighter-rouge notranslate">:!</code>
+</h5> <p>在 <code class="language-plaintext highlighter-rouge notranslate">Vim</code> 中可以运行一些终端命令，只要先输入 <code class="language-plaintext highlighter-rouge notranslate">:!</code> ，然后接命令名称。</p> <p>例如：</p> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>:!ls # 在Vim中打开的文件所在的目录运行ls命令
+</code></pre>  </div></div> <h4 id="可视模式">可视模式</h4> <p>前面只讲了 <code class="language-plaintext highlighter-rouge notranslate">Vim</code> 的三种模式，其实还有一种模式叫做可视模式。</p> <p>进入它的三种方式（都是从交互模式开始）：</p> <ul> <li>
+<code class="language-plaintext highlighter-rouge notranslate">v</code> 字符可视模式，进入后配合方向键选中字符后，然后再按 <code class="language-plaintext highlighter-rouge notranslate">d</code> 键可以删除选中。</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">V</code> 行可视模式，进入后光标所在行默认被选中，然后再按 <code class="language-plaintext highlighter-rouge notranslate">d</code> 键可以删除所在行。</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">Ctrl + v</code> 块可视模式，它是可视模式最有用的功能了，配合 <code class="language-plaintext highlighter-rouge notranslate">d</code> 和 <code class="language-plaintext highlighter-rouge notranslate">I</code> 键可以实现删除选中的内容和插入内容。</li> </ul> <p>同时选中多行，并在选中行头部插入内容的具体操作步骤：</p> <ol> <li>
+<code class="language-plaintext highlighter-rouge notranslate">ctrl + v</code> 进入块可视模式</li> <li>使用方向键进行选中（上下左右）假设选中5行</li> <li>输入 <code class="language-plaintext highlighter-rouge notranslate">I</code> 键进行多行同时插入操作</li> <li>插入完成后连续按两下 <code class="language-plaintext highlighter-rouge notranslate">esc</code> 键，实现多行同时插入相同字符</li> </ol> <p>进入可视模式之后的操作键：</p> <ul> <li>
+<code class="language-plaintext highlighter-rouge notranslate">d</code> 键，表示删除选中；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">I</code> 键，表示在选中之前插入；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">u</code> 键，表示选中变为小写；</li> <li>
+<code class="language-plaintext highlighter-rouge notranslate">U</code> 键，表示选中变为大写；</li> </ul> <h3 id="3-vim-配置">3. Vim 配置</h3> <h4 id="选项参数">选项参数</h4> <p>在 <code class="language-plaintext highlighter-rouge notranslate">Vim</code> 被启动后，可以运行一些指令来激活一些选项参数，但是这些选项参数的配置在退出 <code class="language-plaintext highlighter-rouge notranslate">Vim</code> 时会被忘记，例如前面讲解的激活行号。如果希望所在的配置是永久性的，那么需要在家目录（ <code class="language-plaintext highlighter-rouge notranslate">cd ~</code> ）创建一个 <code class="language-plaintext highlighter-rouge notranslate">Vim</code> 的配置文件 <code class="language-plaintext highlighter-rouge notranslate">.vimrc</code> 。</p> <h4 id="vimrc">.vimrc</h4> <div class="language-plaintext highlighter-rouge notranslate"><div class="highlight">
+<pre class="highlight"><code>set number " 显示行号
+syntax on " 激活语法高亮
+set showcmd " 实时看到输入的命令
+set ignorecase " 搜索时不区分大小写
+set mouse=a " 激活鼠标，用鼠标选中时相当于进入可视模式
+</code></pre>  </div></div> <p><code class="language-plaintext highlighter-rouge notranslate">Vim</code> 配置非常丰富，我们可以通过个性化配置把 <code class="language-plaintext highlighter-rouge notranslate">Vim</code> 打造成属于自己的 <code class="language-plaintext highlighter-rouge notranslate">IDE</code> 等等。在 <code class="language-plaintext highlighter-rouge notranslate">github</code> 上也可以搜索到一些强大的 <code class="language-plaintext highlighter-rouge notranslate">Vim</code> 配置文件。</p> <h3 id="总结">总结</h3> <p>相信通过本文的学习，你应该会对 <code class="language-plaintext highlighter-rouge notranslate">Linux</code> 有一个更加全面的认识。</p> <p>最后，实现Linux 命令自由。</p> </div> <div class="markdown-content-footer"> <p>感谢各位的阅读，想要及时了解最新信息或建议，请关注公众号：<a href="https://mp.weixin.qq.com/s/i7Qw4I3glZXx-ctWJeMp_w" target="_blank">终南有客</a> 或邮箱：<a>justmyfreedom@outlook.com</a></p> </div> </div> <div class="navigation-bottom d-flex flex-justify-between py-3" role="navigation" aria-label="footer navigation"> <div class="prev"><a href="/blog/development/os/linux/2023-05-17_2.html" class="btn" title="Linux命令大全(Linux常用命令基础)" accesskey="p" rel="prev" target="_blank"> <i class="fa fa-arrow-circle-left"></i> Previous </a></div> <div class="next"><a href="/blog/development/os/linux/2023-04-23_1.html" class="btn" title="Linux的上传和下载功能" accesskey="n" rel="next" target="_blank"> Next <i class="fa fa-arrow-circle-right"></i> </a></div> </div>
+<hr> <div class="copyright text-center text-gray" role="contentinfo"> <i class="fa fa-copyright"></i> <span class="time">2023,</span> <a class="text-gray" href="http://localhost:4000" rel="noreferrer" target="_blank"> 终南有客 </a> Revision <a class="text-gray" href="http://localhost:4000/commit/1.0.0" title="1.0.0" rel="noreferrer" target="_blank"> 1.0.0 </a> <br> <div class="generator"> © JustMyFreedom 2023, created by 终南有客. </div> </div> </div> </div> <div class="addons-wrap d-flex flex-column overflow-y-auto"> <div class="status d-flex flex-justify-between p-2"> <div class="title p-1"> <i class="fa fa-book"></i> JustMyFreedom </div> <div class="branch p-1"> <span class="name"> </span> <i class="fa fa-caret-down"></i> </div> </div> <div class="addons d-flex flex-column height-full p-2 d-none"> <dl> <dt>JustMyFreedom</dt> <dd> <a href="http://localhost:4000" title="Homepage"> <i class="fa fa-android"></i> Homepage </a> </dd> <dd> <a href="http://localhost:4000" title="Issues"> <i class="fa fa-question-circle-o"></i> Issues </a> </dd> <dd> <a href="http://localhost:4000" title="Size Kb"> <i class="fa fa-download"></i> Download </a> </dd> </dl> <hr> <div class="license f6 pb-2"> This <a href="http://localhost:4000/" title="JustMyFreedom">website</a> was created by <a href="">终南有客</a>. </div> </div> </div> <script src="/static/assets/js/jquery.min.js"></script><script src="/static/assets/js/theme.min.js"></script> </body> </html>
