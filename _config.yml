@@ -9,8 +9,9 @@ destination: _site
 
 ## => Author and Social
 author:
-  name: JustMyFreedom
+  name: 终南有客
   email: justmyfreedom@outlook.com
+  title: JustMyFreedom
 
 readme_index:
   with_frontmatter: true

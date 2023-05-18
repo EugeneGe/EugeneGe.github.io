@@ -5,32 +5,32 @@
 │  ├─common                                          #
 │  │  │  google_adsense.liquid                       #
 │  │  │  google_gtag.liquid                          #
-│  │  │  links.liquid                                #
+│  │  │  links.liquid                                # link 样式及图标引入
 │  │  │  mathjax.liquid                              #
 │  │  │  mermaid.liquid                              #
-│  │  │  metadata.liquid                             #
-│  │  │  opengraph.liquid                            #
-│  │  │  schema.liquid                               #
-│  │  │  script.liquid                               #
+│  │  │  metadata.liquid                             # blog生成html的meta设置
+│  │  │  opengraph.liquid                            # blog生成html的meta设置
+│  │  │  schema.liquid                               # blog生成html的script application/ld+json 描述
+│  │  │  script.liquid                               # 搜索页面展示
 │  │  │  title.liquid                                #
-│  │  │  twitter_cards.liquid                        #
+│  │  │  twitter_cards.liquid                        # blog生成html的meta设置
 │  │  │                                              #
 │  │  ├─assets                                       #
 │  │  │      data.liquid                             #
 │  │  │      robots.liquid                           #
-│  │  │      sitemap.liquid                          #
+│  │  │      sitemap.liquid                          # sitemap.xml生成设置
 │  │  │      sw.caches.js                            #
 │  │  │                                              #
 │  │  ├─core                                         #
-│  │  │      list.liquid                             #
+│  │  │      list.liquid                             # 生成左侧文章目录
 │  │  │      _list.liquid                            #
 │  │  │                                              #
 │  │  └─rest                                         #
-│  │          content.liquid                         #
+│  │          content.liquid                         # md生成html文章，自定义需要替换的标签
 │  │          defaults.liquid                        #
-│  │          description.liquid                     #
+│  │          description.liquid                     # 根据文章生成meta中的description设置
 │  │          i18n.liquid                            #
-│  │          nav.liquid                             #
+│  │          nav.liquid                             # 上一页，下一页？
 │  │          site_pages.liquid                      #
 │  │          tabs.liquid                            #
 │  │          title.liquid                           #
