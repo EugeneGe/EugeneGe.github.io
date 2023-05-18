@@ -5086,8 +5086,8 @@ p.explain .minibutton {
 .menu-sm,.addons-wrap,.sidebar-wrap {
 	position: fixed;
 	bottom: 0;
-	left: -85%;
-	width: 85%;
+	left: -70%;
+	width: 70%;
 	max-height: 100%
 }
 
@@ -5107,7 +5107,7 @@ p.explain .minibutton {
 	position: fixed;
 	top: 0;
 	bottom: 0;
-	left: 85%;
+	left: 70%;
 	min-width: 100%
 }
 
@@ -5310,11 +5310,11 @@ p.explain .minibutton {
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
-	padding-left: 108px
+	padding-left: 50px
 }
 
 .toc.level-5.current>a {
-	padding-left: 108px;
+	padding-left: 50px;
 	background: var(--toc-5)
 }
 
@@ -5323,11 +5323,11 @@ p.explain .minibutton {
 }
 
 .toc.level-5.current .level-6>a {
-	padding-left: 132px
+	padding-left: 60px
 }
 
 .toc.level-6.current>a {
-	padding-left: 132px;
+	padding-left: 60px;
 	background: var(--toc-6)
 }
 
@@ -5336,11 +5336,11 @@ p.explain .minibutton {
 }
 
 .toc.level-6.current .level-7>a {
-	padding-left: 156px
+	padding-left: 70px
 }
 
 .toc.level-7.current>a {
-	padding-left: 156px;
+	padding-left: 70px;
 	background: var(--toc-7)
 }
 
@@ -5349,11 +5349,11 @@ p.explain .minibutton {
 }
 
 .toc.level-7.current .level-8>a {
-	padding-left: 180px
+	padding-left: 80px
 }
 
 .toc.level-8.current>a {
-	padding-left: 180px;
+	padding-left: 80px;
 	background: var(--toc-8)
 }
 
@@ -5646,7 +5646,7 @@ html[dir=rtl] dd {
 
 html[dir=rtl] .menu-sm,html[dir=rtl] .sidebar-wrap,html[dir=rtl] .addons-wrap {
 	left: unset;
-	right: -85%
+	right: -70%
 }
 
 html[dir=rtl] .menu-sm.shift,html[dir=rtl] .shift.sidebar-wrap,html[dir=rtl] .shift.addons-wrap {
@@ -5656,7 +5656,7 @@ html[dir=rtl] .menu-sm.shift,html[dir=rtl] .shift.sidebar-wrap,html[dir=rtl] .sh
 
 html[dir=rtl] .content-wrap.shift {
 	left: unset;
-	right: 85%
+	right: 70%
 }
 
 @media(min-width: 768px) {
