@@ -58,9 +58,9 @@
 │  └─templates                                       #
 │      │  addons.liquid                              #
 │      │  breadcrumbs.liquid                         #
-│      │  content.liquid                             #
-│      │  footer.liquid                              #
-│      │  sidebar.liquid                             #
+│      │  content.liquid                             # 文章主体排版
+│      │  footer.liquid                              # 文章底部布局
+│      │  sidebar.liquid                             # 文章左侧布局
 │      │  toctree.liquid                             #
 │      │  _toctree.liquid                            #
 │      │                                             #
