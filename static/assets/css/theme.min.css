@@ -5111,6 +5111,56 @@ p.explain .minibutton {
 	min-width: 100%
 }
 
+.content-wrap .content-catalogue {
+	/* width: 18%;
+	right: 1%; */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    position: fixed;
+}
+
+.content-wrap .content-catalogue li{
+    background-color: #fff !important;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.content-wrap .content-catalogue a{
+    background-color: #fff !important;
+}
+
+.content-wrap .content-catalogue .toc.level-2.current>a {
+    padding-left: 0px !important;
+}
+
+.content-wrap .content-catalogue .toc.level-2.current .level-3>a {
+    padding-left: 10px !important;
+}
+
+.content-wrap .content-catalogue .toc.level-3.current .level-4>a {
+    padding-left: 20px !important;
+}
+
+.content-wrap .content-catalogue .toc.level-4.current .level-5>a {
+    padding-left: 30px !important;
+}
+
+.content-wrap .content-catalogue .toc.level-5.current .level-6>a {
+    padding-left: 40px !important;
+}
+
+.content-wrap .content-catalogue .toc.level-6.current .level-7>a {
+    padding-left: 50px !important;
+}
+
+.content-wrap .content-catalogue-list{
+    display: none;
+}
+
 @media(min-width: 768px) {
 	.menu-md,.addons-wrap,.sidebar-wrap {
 		left: 0;
@@ -5140,6 +5190,12 @@ p.explain .minibutton {
 @media(min-width: 1280px) {
 	.content-wrap {
 		max-width: 980px
+	}
+}
+
+@media(min-width: 1360px) {
+	.content-wrap .content-catalogue-list{
+		display: unset !important;
 	}
 }
 
