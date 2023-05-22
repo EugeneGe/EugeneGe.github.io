@@ -5138,23 +5138,19 @@ p.explain .minibutton {
 }
 
 .content-wrap .content-catalogue .toc.level-2.current .level-3>a {
-    padding-left: 10px !important;
-}
-
-.content-wrap .content-catalogue .toc.level-3.current .level-4>a {
     padding-left: 20px !important;
 }
 
-.content-wrap .content-catalogue .toc.level-4.current .level-5>a {
-    padding-left: 30px !important;
-}
-
-.content-wrap .content-catalogue .toc.level-5.current .level-6>a {
+.content-wrap .content-catalogue .toc.level-3.current .level-4>a {
     padding-left: 40px !important;
 }
 
-.content-wrap .content-catalogue .toc.level-6.current .level-7>a {
-    padding-left: 50px !important;
+.content-wrap .content-catalogue .toc.level-4.current .level-5>a {
+    padding-left: 60px !important;
+}
+
+.content-wrap .content-catalogue .toc.level-5.current .level-6>a {
+    padding-left: 80px !important;
 }
 
 .content-wrap .content-catalogue-list{

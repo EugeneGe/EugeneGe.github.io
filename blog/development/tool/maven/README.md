@@ -1,6 +1,6 @@
 ---
 sort: 2
 ---
-# Java基础
+# Maven
 
 {% include list.liquid all=true %}
