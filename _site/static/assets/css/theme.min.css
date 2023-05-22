@@ -142,7 +142,9 @@ button,select {
 }
 
 button,html [type=button],[type=reset],[type=submit] {
-	-webkit-appearance: button
+	-webkit-appearance: button;
+	-moz-appearance: button;
+	appearance: button;
 }
 
 button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner {
@@ -176,7 +178,7 @@ textarea {
 	padding: 0
 }[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button {
 	height: auto
-}[type=search] {
+}[type=search]{
 	-webkit-appearance: textfield;
 	outline-offset: -2px
 }[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration {
@@ -934,13 +936,18 @@ label {
 	background-color: #f3f4f6
 }
 
-@supports(-webkit-touch-callout: none) {
-	.form-control,.form-select {
-		font-size: 16px
-	}@	media(min-width: 768px) {
-		.form-control,.form-select{font-size: 14px
+@supports (-webkit-touch-callout: none) {
+	.form-control, .form-select {
+		font-size: 16px;
 	}
-}}
+}
+
+@media (min-width: 768px) {
+	.form-control, .form-select {
+		font-size: 14px;
+	}
+}
+
 
 textarea.form-control {
 	padding-top: 8px;
@@ -5086,8 +5093,8 @@ p.explain .minibutton {
 .menu-sm,.addons-wrap,.sidebar-wrap {
 	position: fixed;
 	bottom: 0;
-	left: -85%;
-	width: 85%;
+	left: -70%;
+	width: 70%;
 	max-height: 100%
 }
 
@@ -5107,8 +5114,54 @@ p.explain .minibutton {
 	position: fixed;
 	top: 0;
 	bottom: 0;
-	left: 85%;
+	left: 70%;
 	min-width: 100%
+}
+
+.content-wrap .content-catalogue {
+	/* width: 18%;
+	right: 1%; */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    position: fixed;
+}
+
+.content-wrap .content-catalogue li{
+    background-color: #fff !important;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.content-wrap .content-catalogue a{
+    background-color: #fff !important;
+}
+
+.content-wrap .content-catalogue .toc.level-2.current>a {
+    padding-left: 0px !important;
+}
+
+.content-wrap .content-catalogue .toc.level-2.current .level-3>a {
+    padding-left: 20px !important;
+}
+
+.content-wrap .content-catalogue .toc.level-3.current .level-4>a {
+    padding-left: 40px !important;
+}
+
+.content-wrap .content-catalogue .toc.level-4.current .level-5>a {
+    padding-left: 60px !important;
+}
+
+.content-wrap .content-catalogue .toc.level-5.current .level-6>a {
+    padding-left: 80px !important;
+}
+
+.content-wrap .content-catalogue-list{
+    display: none;
 }
 
 @media(min-width: 768px) {
@@ -5140,6 +5193,12 @@ p.explain .minibutton {
 @media(min-width: 1280px) {
 	.content-wrap {
 		max-width: 980px
+	}
+}
+
+@media(min-width: 1360px) {
+	.content-wrap .content-catalogue-list{
+		display: unset !important;
 	}
 }
 
@@ -5310,11 +5369,11 @@ p.explain .minibutton {
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
-	padding-left: 108px
+	padding-left: 50px
 }
 
 .toc.level-5.current>a {
-	padding-left: 108px;
+	padding-left: 50px;
 	background: var(--toc-5)
 }
 
@@ -5323,11 +5382,11 @@ p.explain .minibutton {
 }
 
 .toc.level-5.current .level-6>a {
-	padding-left: 132px
+	padding-left: 60px
 }
 
 .toc.level-6.current>a {
-	padding-left: 132px;
+	padding-left: 60px;
 	background: var(--toc-6)
 }
 
@@ -5336,11 +5395,11 @@ p.explain .minibutton {
 }
 
 .toc.level-6.current .level-7>a {
-	padding-left: 156px
+	padding-left: 70px
 }
 
 .toc.level-7.current>a {
-	padding-left: 156px;
+	padding-left: 70px;
 	background: var(--toc-7)
 }
 
@@ -5349,11 +5408,11 @@ p.explain .minibutton {
 }
 
 .toc.level-7.current .level-8>a {
-	padding-left: 180px
+	padding-left: 80px
 }
 
 .toc.level-8.current>a {
-	padding-left: 180px;
+	padding-left: 80px;
 	background: var(--toc-8)
 }
 
@@ -5646,7 +5705,7 @@ html[dir=rtl] dd {
 
 html[dir=rtl] .menu-sm,html[dir=rtl] .sidebar-wrap,html[dir=rtl] .addons-wrap {
 	left: unset;
-	right: -85%
+	right: -70%
 }
 
 html[dir=rtl] .menu-sm.shift,html[dir=rtl] .shift.sidebar-wrap,html[dir=rtl] .shift.addons-wrap {
@@ -5656,7 +5715,7 @@ html[dir=rtl] .menu-sm.shift,html[dir=rtl] .shift.sidebar-wrap,html[dir=rtl] .sh
 
 html[dir=rtl] .content-wrap.shift {
 	left: unset;
-	right: 85%
+	right: 70%
 }
 
 @media(min-width: 768px) {
