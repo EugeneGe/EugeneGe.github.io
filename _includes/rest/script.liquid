@@ -4,4 +4,5 @@
     <script>{{ extra_script }}</script>
 {%- endif -%}
 
-<script src="{{ base }}/assets/js/theme{% if site.debug.dist != false %}.min{% endif %}.js"></script>
+<script src="{{ base }}/assets/js/theme{% if site.debug.dist != false %}.min{% endif %}.js?{{ 'now' | date: "%s" }}"></script>
+
