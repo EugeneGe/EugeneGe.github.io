@@ -142,7 +142,9 @@ button,select {
 }
 
 button,html [type=button],[type=reset],[type=submit] {
-	-webkit-appearance: button
+	-webkit-appearance: button;
+	-moz-appearance: button;
+	appearance: button;
 }
 
 button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner {
@@ -176,7 +178,7 @@ textarea {
 	padding: 0
 }[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button {
 	height: auto
-}[type=search] {
+}[type=search]{
 	-webkit-appearance: textfield;
 	outline-offset: -2px
 }[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration {
@@ -934,13 +936,18 @@ label {
 	background-color: #f3f4f6
 }
 
-@supports(-webkit-touch-callout: none) {
-	.form-control,.form-select {
-		font-size: 16px
-	}@	media(min-width: 768px) {
-		.form-control,.form-select{font-size: 14px
+@supports (-webkit-touch-callout: none) {
+	.form-control, .form-select {
+		font-size: 16px;
 	}
-}}
+}
+
+@media (min-width: 768px) {
+	.form-control, .form-select {
+		font-size: 14px;
+	}
+}
+
 
 textarea.form-control {
 	padding-top: 8px;
