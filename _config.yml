@@ -1,8 +1,10 @@
 title: JustMyFreedom
 email: justmyfreedom@outlook.com
 description: 成功只有一种，那就是按照自己喜欢的方式过完一生。
-url: https://justmyfreedom.com/
+url: https://justmyfreedom.com
 theme: null
+
+changefreq: weekly
 
 # 网站输出目录
 destination: _site
