@@ -2,7 +2,7 @@
 sort: 2
 ---
 
-# Html笔记
+# Html
 
 ## 介绍
 html前端开发技术

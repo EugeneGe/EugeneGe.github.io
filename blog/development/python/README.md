@@ -1,7 +1,7 @@
 ---
 sort: 4
 ---
-# Python笔记
+# Python
 ## 介绍
 python开发笔记
 
