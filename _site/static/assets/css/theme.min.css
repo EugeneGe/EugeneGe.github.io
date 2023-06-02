@@ -5637,8 +5637,8 @@ p.explain .minibutton {
 .markdown-content-footer{
 	margin-block-start: 1em;
     margin-block-end: 1em;
-	margin-top: 16px;
-    margin-bottom: 16px;
+	margin-top: 30px;
+    margin-bottom: 5px;
 	color: #6a737d;
     border-left: 0.25em solid #dfe2e5;
     background: #eef0f4;
