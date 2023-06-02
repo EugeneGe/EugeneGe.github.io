@@ -1,7 +1,7 @@
 ---
 sort: 3
 ---
-# Java语言
+# Java
 
 ### Java介绍
 Java是一种广泛使用的高级编程语言和计算平台，由Sun Microsystems（现在是Oracle Corporation）于1995年推出。它被设计成一种跨平台的语言，可以在各种操作系统上运行，如Windows、macOS和Linux等。
